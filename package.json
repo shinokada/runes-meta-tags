@@ -1,5 +1,5 @@
 {
-  "name": "svelte-runes-meta",
+  "name": "runes-meta-tags",
   "version": "0.1.1",
   "scripts": {
     "dev": "vite dev",
