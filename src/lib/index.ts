@@ -1,6 +1,6 @@
-export { default as RunesMeta } from './RunesMeta.svelte';
+export { default as RunesMetaTags } from './RunesMetaTags.svelte';
 
-export type { MetaProps, TwitterType, OgType } from './RunesMeta.svelte';
+export type { MetaProps, TwitterType, OgType } from './RunesMetaTags.svelte';
 
 type AnyObject = { [key: string]: any };
 export function deepMerge(target: AnyObject, source: AnyObject): AnyObject {

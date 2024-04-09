@@ -1,25 +1,27 @@
 <script lang="ts">
   import {
     removeHyphensAndCapitalize,
-    HomeCards,
     SupportBanner,
     TechInfo,
     BellActiveAltOutline,
-    insertObjectToArray,
-    excludeByTitle,
-    cards,
-    info,
-    pkg
+    pkg,
+    HighlightCompo,
+    H2
   } from 'runes-webkit';
 
-  const cardsToExclude = ['Seven Props'];
-  const brand = {
-    title: 'Brands, Regular, and Solid Icons',
-    description: '2000+ SVG Icons.',
-    icon: BellActiveAltOutline,
-    iconClass: 'text-green-500'
-  };
-  let filteredCards = $state(insertObjectToArray(excludeByTitle(cards, cardsToExclude), brand, 2));
+  // const cardsToExclude = ['Seven Props'];
+  // const brand = {
+  //   title: 'Brands, Regular, and Solid Icons',
+  //   description: '2000+ SVG Icons.',
+  //   icon: BellActiveAltOutline,
+  //   iconClass: 'text-green-500'
+  // };
+  // let filteredCards = $state(insertObjectToArray(excludeByTitle(cards, cardsToExclude), brand, 2));
+  const modules = import.meta.glob('./md/*.md', {
+    query: '?raw',
+    import: 'default',
+    eager: true
+  });
 </script>
 
 <SupportBanner>
@@ -34,7 +36,21 @@
 </SupportBanner>
 
 <h1 class="my-8 flex justify-center">{removeHyphensAndCapitalize(__NAME__)}</h1>
-<HomeCards cards={filteredCards} />
-<h2 class="my-8 flex justify-center">Info</h2>
-<HomeCards cards={info} />
+
+<H2>Installation</H2>
+
+<HighlightCompo codeLang="ts" code={modules['./md/installation.md'] as string} />
+<H2>+layout.server.ts</H2>
+
+<HighlightCompo codeLang="ts" code={modules['./md/layout-server-ts.md'] as string} />
+
+<H2>+layout.svelte</H2>
+<HighlightCompo codeLang="ts" code={modules['./md/layout-svelte.md'] as string} />
+
+<H2>about/+page.ts</H2>
+<HighlightCompo codeLang="ts" code={modules['./md/about-page-ts.md'] as string} />
+
+<H2>about/+page.svelte</H2>
+<HighlightCompo codeLang="ts" code={modules['./md/about-page-svelte.md'] as string} />
+
 <TechInfo {...pkg} />

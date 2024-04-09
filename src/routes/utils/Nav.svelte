@@ -20,9 +20,9 @@
   } from 'runes-webkit';
   import DynamicCodeBlockStyle from './DynamicCodeBlockStyle.svelte';
 
-  function isIncluded(url: string, allowedUrls: string[]): boolean {
-    return allowedUrls.some((allowedUrl) => url.startsWith(allowedUrl));
-  }
+  // function isIncluded(url: string, allowedUrls: string[]): boolean {
+  //   return allowedUrls.some((allowedUrl) => url.startsWith(allowedUrl));
+  // }
 
   type LiType = {
     name: string;
@@ -50,7 +50,7 @@
   let currentUrl = $state($page.url.pathname);
   let nav = uiHelpers();
 
-  let include = $derived(isIncluded(currentUrl, urlsToIncludeSwitcher));
+  // let include = $derived(isIncluded(currentUrl, urlsToIncludeSwitcher));
 
   let navStatus = $state(false);
   let toggleNav = nav.toggle;
@@ -93,9 +93,7 @@
         spanclass="self-center whitespace-nowrap text-2xl font-semibold text-primary-900 dark:text-primary-500"
       />
       <div class="ml-auto flex items-center lg:order-1">
-        {#if include}
-          <DynamicCodeBlockStyle />
-        {/if}
+        <DynamicCodeBlockStyle />
         <DotsHorizontalOutline onclick={toggle} class="ml-4 dark:text-white" size="lg" />
         <div class="relative">
           <Dropdown {isOpen} divclass="absolute -left-[30px] w-9">
