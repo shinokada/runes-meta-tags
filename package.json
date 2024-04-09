@@ -1,6 +1,25 @@
 {
   "name": "runes-meta-tags",
-  "version": "0.1.1",
+  "version": "0.2.0",
+  "description": "Meta tag for Svelte Runes",
+  "author": {
+    "name": "Shinichi Okada",
+    "email": "connect@codewithshin.com",
+    "url": "https://blog.codewithshin.com"
+  },
+  "bugs": "https://github.com/shinokada/runes-meta-tag/issues",
+  "homepage": "https://runes-meta-tag.codewithshin.com/",
+  "license": "MIT",
+  "keywords": [
+    "svelte",
+    "sveltekit",
+    "meta tag",
+    "runes"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shinokada/runes-meta-tag"
+  },
   "scripts": {
     "dev": "vite dev",
     "build": "vite build && npm run package",
@@ -66,25 +85,6 @@
   "svelte": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "type": "module",
-  "description": "Meta tag for Svelte Runes",
-  "author": {
-    "name": "Shinichi Okada",
-    "email": "connect@codewithshin.com",
-    "url": "https://blog.codewithshin.com"
-  },
-  "bugs": "https://github.com/shinokada/runes-meta-tag/issues",
-  "homepage": "https://runes-meta-tag.codewithshin.com/",
-  "license": "MIT",
-  "keywords": [
-    "svelte",
-    "sveltekit",
-    "meta tag",
-    "runes"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/shinokada/runes-meta-tag"
-  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
