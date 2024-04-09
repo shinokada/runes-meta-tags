@@ -1,4 +1,4 @@
-import type { MetaProps } from '$lib'
+import type { MetaProps } from '$lib';
 import { ANALYTICS_ID } from '$env/static/private';
 
 export const load = ({ url }) => {
@@ -13,7 +13,7 @@ export const load = ({ url }) => {
       title: 'Runes meta',
       description: 'Meta tags for Runes.',
       image: 'https://open-graph-vercel.vercel.app/api/runes-meta',
-      imageAlt: 'Runes meta',
+      imageAlt: 'Runes meta'
     },
     og: {
       type: 'website',
@@ -24,11 +24,11 @@ export const load = ({ url }) => {
       imageAlt: 'Runes meta',
       siteName: 'Runes meta',
       imageWidth: '1200',
-      imageHeight: '630',
-    }, 
-  }
+      imageHeight: '630'
+    }
+  };
   return {
     layoutMetaTags,
     ANALYTICS_ID
   };
-}
+};

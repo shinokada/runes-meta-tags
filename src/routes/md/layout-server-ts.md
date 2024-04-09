@@ -1,10 +1,10 @@
 import type { MetaProps } from 'runes-meta-tag'
 
 export const load = ({ url }) => {
-  const layoutMetaTags = Object.freeze({
-    title: 'Runes meta',
-    description: 'Meta tags for Runes.',
-    keywords: 'runes, meta, tags',
+const layoutMetaTags = Object.freeze({
+title: 'Runes meta',
+description: 'Meta tags for Runes.',
+keywords: 'runes, meta, tags',
 
     twitter: {
       card: 'summary_large_image',
@@ -26,12 +26,11 @@ export const load = ({ url }) => {
       siteName: 'Runes meta',
       imageWidth: '1200',
       imageHeight: '630',
-    }, 
+    },
 
+}) satisfies MetaProps;
 
-  }) satisfies MetaProps;
-
-  return {
-    layoutMetaTags
-  };
+return {
+layoutMetaTags
+};
 }

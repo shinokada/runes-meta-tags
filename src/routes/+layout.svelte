@@ -3,25 +3,26 @@
   import { Runatics } from 'runatics';
   import { RunesMetaTags, deepMerge } from '$lib';
   import { page } from '$app/stores';
-  import {
-    Footer,
-    removeHyphensAndCapitalize
-  } from 'runes-webkit';
+  import { Footer, removeHyphensAndCapitalize } from 'runes-webkit';
   import Nav from './utils/Nav.svelte';
 
   let { children, data } = $props();
-  const analyticsId = data.ANALYTICS_ID
+  const analyticsId = data.ANALYTICS_ID;
   let currentUrl = $state($page.url.pathname);
 
-  let metaTags = $state($page.data.pageMetaTags ? deepMerge($page.data.layoutMetaTags, $page.data.pageMetaTags ) : data.layoutMetaTags);
+  let metaTags = $state(
+    $page.data.pageMetaTags
+      ? deepMerge($page.data.layoutMetaTags, $page.data.pageMetaTags)
+      : data.layoutMetaTags
+  );
   $effect(() => {
     currentUrl = $page.url.pathname;
-    metaTags = $page.data.pageMetaTags ? deepMerge($page.data.layoutMetaTags, $page.data.pageMetaTags ) : data.layoutMetaTags
+    metaTags = $page.data.pageMetaTags
+      ? deepMerge($page.data.layoutMetaTags, $page.data.pageMetaTags)
+      : data.layoutMetaTags;
     // $inspect('metaTags', metaTags)
   });
-  const lis = [
-    { name: 'About', href: '/about' }
-  ];
+  const lis = [{ name: 'About', href: '/about' }];
   const brand = {
     name: 'codewithshin.com',
     href: 'https://codewithshin.com'
@@ -34,14 +35,9 @@
 </script>
 
 <Runatics {analyticsId} />
-<RunesMetaTags {...metaTags}/>
-<Nav
-  {lis}
-  {siteName}
-  {twitterUrl}
-  {githubUrl}
-/>
-<div class="lg:flex max-w-5xl mx-auto">
+<RunesMetaTags {...metaTags} />
+<Nav {lis} {siteName} {twitterUrl} {githubUrl} />
+<div class="mx-auto max-w-5xl lg:flex">
   <div class="relative h-full w-full overflow-y-auto px-8">
     {@render children()}
     <Footer {brand} {lis} ulClass="dark_bg_theme" />
