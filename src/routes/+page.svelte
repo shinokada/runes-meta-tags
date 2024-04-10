@@ -47,6 +47,10 @@
 <H2>about/+page.svelte</H2>
 <HighlightCompo codeLang="ts" code={modules['./md/about-page-svelte.md'] as string} />
 
+<H2>Playwright test examples</H2>
+
+<HighlightCompo codeLang="ts" code={modules['./md/playwright-tests.md'] as string} />
+
 <TechInfo {...pkg} >
   <li class='hover:text-red-700 hover:underline'>
     <a href="https://runatics.codewithshin.com/" class='me-4 hover:underline md:me-6'>Runatics: {__RUNATICS__}</a>
