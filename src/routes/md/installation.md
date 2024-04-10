@@ -1,1 +1,1 @@
-pnpm i -D runes-meta-tag
+pnpm i -D runes-meta-tags

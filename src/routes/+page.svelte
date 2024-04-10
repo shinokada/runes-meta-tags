@@ -9,14 +9,6 @@
     H2
   } from 'runes-webkit';
 
-  // const cardsToExclude = ['Seven Props'];
-  // const brand = {
-  //   title: 'Brands, Regular, and Solid Icons',
-  //   description: '2000+ SVG Icons.',
-  //   icon: BellActiveAltOutline,
-  //   iconClass: 'text-green-500'
-  // };
-  // let filteredCards = $state(insertObjectToArray(excludeByTitle(cards, cardsToExclude), brand, 2));
   const modules = import.meta.glob('./md/*.md', {
     query: '?raw',
     import: 'default',
@@ -37,6 +29,8 @@
 
 <h1 class="my-8 flex justify-center">{removeHyphensAndCapitalize(__NAME__)}</h1>
 
+<p>Runes Meta Tags manages the meta tags for a web page. It allows you to easily configure various meta tags including basic SEO (Search Engine Optimization) information, robots meta tag, and social media specific meta tags for Twitter and Open Graph.</p>
+
 <H2>Installation</H2>
 
 <HighlightCompo codeLang="ts" code={modules['./md/installation.md'] as string} />
@@ -53,4 +47,8 @@
 <H2>about/+page.svelte</H2>
 <HighlightCompo codeLang="ts" code={modules['./md/about-page-svelte.md'] as string} />
 
-<TechInfo {...pkg} />
+<TechInfo {...pkg} >
+  <li class='hover:text-red-700 hover:underline'>
+    <a href="https://runatics.codewithshin.com/" class='me-4 hover:underline md:me-6'>Runatics: {__RUNATICS__}</a>
+  </li>
+</TechInfo> 
