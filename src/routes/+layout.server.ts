@@ -3,7 +3,7 @@ import { ANALYTICS_ID } from '$env/static/private';
 
 export const load = ({ url }) => {
   const layoutMetaTags: MetaProps = {
-    title: 'Runes meta',
+    title: 'Runes Meta Tags',
     description: 'Meta tags for Runes.',
     keywords: 'runes, meta, tags',
     twitter: {
