@@ -1,5 +1,5 @@
 <script>
-  import { RunesMetaTag, deepMerge } from '$lib';
+  import { RunesMetaTag, deepMerge } from 'runes-meta-tags';
   import { page } from '$app/stores';
 
   let { children, data } = $props();
