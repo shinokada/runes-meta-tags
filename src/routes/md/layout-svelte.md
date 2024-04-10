@@ -14,6 +14,6 @@
   });
 </script>
 
-<RunesMetaTag {...metaTags}/>
+<RunesMetaTags {...metaTags}/>
 
 {@render children()}
