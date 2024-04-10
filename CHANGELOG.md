@@ -1,5 +1,11 @@
 # runes-meta-tags
 
+## 0.2.2
+
+### Patch Changes
+
+- 5dd8bf2: fix: add optional ? to twitter?.card and og?.url etc.
+
 ## 0.2.1
 
 ### Patch Changes
