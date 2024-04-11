@@ -16,12 +16,12 @@ test('index page has expected meta title', async ({ page }) => {
 test('index page has expected meta description', async ({ page }) => {
   const metaDescription = page.locator('meta[name="description"]');
   await expect(metaDescription).toHaveAttribute('content', 'Meta tags for Runes.');
-})
+});
 
 test('index page has expected meta keywords', async ({ page }) => {
   const metaKeywords = page.locator('meta[name="keywords"]');
   await expect(metaKeywords).toHaveAttribute('content', 'runes, meta, tags');
-})
+});
 
 test('index page has expected meta og', async ({ page }) => {
   const metaOgTitle = page.locator('meta[property="og:title"]');
@@ -35,7 +35,7 @@ test('index page has expected meta og', async ({ page }) => {
     'content',
     'https://open-graph-vercel.vercel.app/api/runes-meta'
   );
-})
+});
 
 test('index page has expected meta twitter', async ({ page }) => {
   const metaTwitterTitle = page.locator('meta[name="twitter:title"]');

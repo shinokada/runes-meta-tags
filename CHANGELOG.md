@@ -1,5 +1,11 @@
 # runes-meta-tags
 
+## 0.2.3
+
+### Patch Changes
+
+- ee59235: fix: add "main": "dist/index.js" to package.json
+
 ## 0.2.2
 
 ### Patch Changes
