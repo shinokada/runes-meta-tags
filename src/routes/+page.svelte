@@ -3,10 +3,9 @@
     removeHyphensAndCapitalize,
     SupportBanner,
     TechInfo,
-    BellActiveAltOutline,
     pkg,
     HighlightCompo,
-    H2
+    H2, H3
   } from 'runes-webkit';
 
   const modules = import.meta.glob('./md/*.md', {
@@ -36,24 +35,37 @@
 </p>
 
 <H2>Installation</H2>
+<p>Please install <code>runes-meta-tags</code> by using the following command:</p>
 
 <HighlightCompo codeLang="ts" code={modules['./md/installation.md'] as string} />
-<H2>+layout.server.ts</H2>
 
+<H2>+layout.server.ts</H2>
+<p>The <code>+layout.server.ts</code> file is used for serving the default meta tags.</p>
 <HighlightCompo codeLang="ts" code={modules['./md/layout-server-ts.md'] as string} />
 
 <H2>+layout.svelte</H2>
+<p>Import <code>RunesMetaTags</code> and <code>deepMerge</code> from <code>runes-meta-tags</code>. Add <code>data</code> to the <code>$props()</code>.</p>
+
 <HighlightCompo codeLang="ts" code={modules['./md/layout-svelte.md'] as string} />
 
 <H2>about/+page.ts</H2>
+<p>You can modify the meta tags if you need. The following is an example for the about page.</p>
 <HighlightCompo codeLang="ts" code={modules['./md/about-page-ts.md'] as string} />
 
 <H2>about/+page.svelte</H2>
+<p><code>about/+page.svelte</code> needs any extra code.</p>
 <HighlightCompo codeLang="ts" code={modules['./md/about-page-svelte.md'] as string} />
 
 <H2>Playwright test examples</H2>
 
-<HighlightCompo codeLang="ts" code={modules['./md/playwright-tests.md'] as string} />
+<H3>Index page</H3>
+<p>Use the following examples to start your Playwright tests for the index page.</p>
+
+<HighlightCompo codeLang="ts" code={modules['./md/playwright-test-index.md'] as string} />
+<H3>About page</H3>
+<p>Use the following examples to start your Playwright tests for the About page.</p>
+
+<HighlightCompo codeLang="ts" code={modules['./md/playwright-test-about.md'] as string} />
 
 <TechInfo {...pkg}>
   <li class="hover:text-red-700 hover:underline">
