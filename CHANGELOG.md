@@ -1,5 +1,12 @@
 # runes-meta-tags
 
+## 0.2.4
+
+### Patch Changes
+
+- 423d251: docs: update Dropdown in Nav
+  chore: dependencies update
+
 ## 0.2.3
 
 ### Patch Changes

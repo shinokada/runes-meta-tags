@@ -5,7 +5,8 @@
     TechInfo,
     pkg,
     HighlightCompo,
-    H2, H3
+    H2,
+    H3
   } from 'runes-webkit';
 
   const modules = import.meta.glob('./md/*.md', {
@@ -44,7 +45,10 @@
 <HighlightCompo codeLang="ts" code={modules['./md/layout-server-ts.md'] as string} />
 
 <H2>+layout.svelte</H2>
-<p>Import <code>RunesMetaTags</code> and <code>deepMerge</code> from <code>runes-meta-tags</code>. Add <code>data</code> to the <code>$props()</code>.</p>
+<p>
+  Import <code>RunesMetaTags</code> and <code>deepMerge</code> from <code>runes-meta-tags</code>.
+  Add <code>data</code> to the <code>$props()</code>.
+</p>
 
 <HighlightCompo codeLang="ts" code={modules['./md/layout-svelte.md'] as string} />
 
