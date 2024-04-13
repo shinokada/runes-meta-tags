@@ -14,6 +14,9 @@
     import: 'default',
     eager: true
   });
+  const runeswebkitVersion = __RUNES_WEBKIT_VERSION__;
+  const runaticsVersion = __RUNATICS__;
+  let newPkg = $state({...pkg, runaticsVersion, runeswebkitVersion})
 </script>
 
 <SupportBanner>
@@ -71,10 +74,4 @@
 
 <HighlightCompo codeLang="ts" code={modules['./md/playwright-test-about.md'] as string} />
 
-<TechInfo {...pkg}>
-  <li class="hover:text-red-700 hover:underline">
-    <a href="https://runatics.codewithshin.com/" class="me-4 hover:underline md:me-6"
-      >Runatics: {__RUNATICS__}</a
-    >
-  </li>
-</TechInfo>
+<TechInfo {...newPkg} />

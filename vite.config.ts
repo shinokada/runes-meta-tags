@@ -8,6 +8,8 @@ import svelteIconWebkit from 'runes-webkit/package.json' assert { type: 'json' }
 import svelteRuneHighlight from 'svelte-rune-highlight/package.json' assert { type: 'json' };
 import vitePackage from 'vite/package.json' assert { type: 'json' };
 import runaticsPackage from './node_modules/runatics/package.json' assert { type: 'json' };
+import runeswebkitPackage from 'runes-webkit/package.json' assert { type: 'json' };
+
 
 export default defineConfig({
   plugins: [sveltekit()],
@@ -24,6 +26,7 @@ export default defineConfig({
     __SVELTE_VERSION__: `"${sveltePackage.version}"`,
     __SVELTEKIT_VERSION__: `"${svelteKitPackage.version}"`,
     __SVELTE_RUNE_HIGHLIGHT_VERSION__: `"${svelteRuneHighlight.version}"`,
-    __VITE_VERSION__: `"${vitePackage.version}"`
+    __VITE_VERSION__: `"${vitePackage.version}"`,
+    __RUNES_WEBKIT_VERSION__: `"${runeswebkitPackage.version}"`
   }
 });
