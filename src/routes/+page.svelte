@@ -16,7 +16,7 @@
   });
   const runeswebkitVersion = __RUNES_WEBKIT_VERSION__;
   const runaticsVersion = __RUNATICS__;
-  let newPkg = $state({...pkg, runaticsVersion, runeswebkitVersion})
+  let newPkg = $state({ ...pkg, runaticsVersion, runeswebkitVersion });
 </script>
 
 <SupportBanner>

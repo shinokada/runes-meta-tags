@@ -10,7 +10,6 @@ import vitePackage from 'vite/package.json' assert { type: 'json' };
 import runaticsPackage from './node_modules/runatics/package.json' assert { type: 'json' };
 import runeswebkitPackage from 'runes-webkit/package.json' assert { type: 'json' };
 
-
 export default defineConfig({
   plugins: [sveltekit()],
   test: {

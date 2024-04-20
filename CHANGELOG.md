@@ -1,5 +1,11 @@
 # runes-meta-tags
 
+## 0.2.5
+
+### Patch Changes
+
+- 6c9b8af: feat: add removeHyphensAndCapitalize and splitAndCapitalize functions
+
 ## 0.2.4
 
 ### Patch Changes
