@@ -1,27 +1,33 @@
 import type { MetaProps } from '$lib';
 import { ANALYTICS_ID } from '$env/static/private';
+import { metaTitle, metaDescription, metaImg } from '$lib';
 
 export const load = ({ url }) => {
+  const title = metaTitle(url.pathname, __NAME__)
+  const basicDesc = 'Meta tags for Runes.'
+  const description = metaDescription(url.pathname, basicDesc)
+  const image = metaImg(url.pathname, __NAME__)
+
   const layoutMetaTags: MetaProps = {
-    title: 'Runes Meta Tags',
-    description: 'Meta tags for Runes.',
+    title,
+    description,
     keywords: 'runes, meta, tags',
     twitter: {
       card: 'summary_large_image',
       site: '@shinokada',
       handle: '@shinokada',
-      title: 'Runes meta',
-      description: 'Meta tags for Runes.',
-      image: 'https://open-graph-vercel.vercel.app/api/runes-meta',
-      imageAlt: 'Runes meta'
+      title,
+      description,
+      image,
+      imageAlt: title,
     },
     og: {
       type: 'website',
-      title: 'Runes meta',
-      description: 'Meta tags for Runes.',
+      title,
+      description,
       url: url.href,
-      image: 'https://open-graph-vercel.vercel.app/api/runes-meta',
-      imageAlt: 'Runes meta',
+      image,
+      imageAlt: title,
       siteName: 'Runes meta',
       imageWidth: '1200',
       imageHeight: '630'
