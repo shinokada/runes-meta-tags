@@ -1,5 +1,5 @@
-import type { MetaProps } from '$lib';
-import { metaTitle, metaDescription, metaImg, splitAndCapitalize } from '$lib';
+import type { MetaProps } from 'runes-meta-tags';
+import { metaTitle, metaDescription, metaImg, splitAndCapitalize } from 'runes-meta-tags';
 // define __NAME__ in your vite.config.ts
 export const load = ({ url }) => {
   const title = metaTitle(url.pathname, __NAME__);
