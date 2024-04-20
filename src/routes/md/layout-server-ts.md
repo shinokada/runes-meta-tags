@@ -1,26 +1,32 @@
 import type { MetaProps } from 'runes-meta-tags';
-
+import { metaTitle, metaDescription, metaImg } from 'runes-meta-tags';
+// define __NAME__ in your vite.config.ts
 export const load = ({ url }) => {
+  const title = metaTitle(url.pathname, __NAME__);
+  const basicDesc = 'Meta tags for Runes.';
+  const description = metaDescription(url.pathname, basicDesc);
+  const image = metaImg(url.pathname, __NAME__);
+
   const layoutMetaTags: MetaProps = {
-    title: 'Runes Meta Tags',
-    description: 'Meta tags for Runes.',
+    title,
+    description,
     keywords: 'runes, meta, tags',
     twitter: {
       card: 'summary_large_image',
       site: '@johndoe',
       handle: '@johndoe',
-      title: 'Runes meta',
-      description: 'Meta tags for Runes.',
-      image: 'https://open-graph-vercel.vercel.app/api/runes-meta',
-      imageAlt: 'Runes meta'
+      title,
+      description,
+      image,
+      imageAlt: title
     },
     og: {
       type: 'website',
-      title: 'Runes meta',
-      description: 'Meta tags for Runes.',
+      title,
+      description,
       url: url.href,
-      image: 'https://open-graph-vercel.vercel.app/api/runes-meta',
-      imageAlt: 'Runes meta',
+      image,
+      imageAlt: title,
       siteName: 'Runes meta',
       imageWidth: '1200',
       imageHeight: '630'

@@ -6,7 +6,7 @@ const config = {
     './node_modules/runes-webkit/**/*.{html,js,svelte,ts}'
   ],
 
-  darkMode: 'class',
+  darkMode: 'selector',
 
   theme: {
     extend: {

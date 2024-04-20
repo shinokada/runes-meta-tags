@@ -1,17 +1,23 @@
-import type { MetaProps } from 'runes-meta-tags';
+import type { MetaProps } from '$lib';
+import { metaTitle, metaDescription, metaImg, splitAndCapitalize } from '$lib';
+// define __NAME__ in your vite.config.ts
+export const load = ({ url }) => {
+  const title = metaTitle(url.pathname, __NAME__);
+  const basicDesc = splitAndCapitalize(__NAME__);
+  const description = metaDescription(url.pathname, basicDesc);
+  const image = metaImg(url.pathname, __NAME__);
 
-export const load = () => {
-  const pageMetaTags = Object.freeze({
-    title: 'About | Runes Meta Tag',
-    description: 'About page for Runes Meta Tag.',
+  const pageMetaTags = {
+    title,
+    description,
     og: {
-      title: 'About | Runes Meta Tag',
-      description: 'About page for Runes Meta Tag.'
+      title,
+      description
     },
     twitter: {
-      title: 'About | Runes Meta Tag',
-      description: 'About page for Runes Meta Tag.'
+      title,
+      description
     }
-  }) satisfies MetaProps;
+  };
   return { pageMetaTags };
 };

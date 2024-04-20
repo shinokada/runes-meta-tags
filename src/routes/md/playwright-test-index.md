@@ -25,7 +25,7 @@ test('index page has expected meta keywords', async ({ page }) => {
 
 test('index page has expected meta og', async ({ page }) => {
   const metaOgTitle = page.locator('meta[property="og:title"]');
-  await expect(metaOgTitle).toHaveAttribute('content', 'Runes meta');
+  await expect(metaOgTitle).toHaveAttribute('content', 'Runes Meta Tags');
   const metaOgDescription = page.locator('meta[property="og:description"]');
   await expect(metaOgDescription).toHaveAttribute('content', 'Meta tags for Runes.');
   const metaOgUrl = page.locator('meta[property="og:url"]');
@@ -33,13 +33,18 @@ test('index page has expected meta og', async ({ page }) => {
   const metaOgImage = page.locator('meta[property="og:image"]');
   await expect(metaOgImage).toHaveAttribute(
     'content',
-    'https://open-graph-vercel.vercel.app/api/runes-meta'
+    'https://open-graph-vercel.vercel.app/api/runes-meta-tags'
   );
 });
 
 test('index page has expected meta twitter', async ({ page }) => {
   const metaTwitterTitle = page.locator('meta[name="twitter:title"]');
-  await expect(metaTwitterTitle).toHaveAttribute('content', 'Runes meta');
+  await expect(metaTwitterTitle).toHaveAttribute('content', 'Runes Meta Tags');
   const metaTwitterDescription = page.locator('meta[name="twitter:description"]');
   await expect(metaTwitterDescription).toHaveAttribute('content', 'Meta tags for Runes.');
+  const metaTwitterImage = page.locator('meta[name="twitter:image"]');
+  await expect(metaTwitterImage).toHaveAttribute(
+    'content',
+    'https://open-graph-vercel.vercel.app/api/runes-meta-tags'
+  );
 });
