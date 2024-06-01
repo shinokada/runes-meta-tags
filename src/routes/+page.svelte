@@ -3,7 +3,6 @@
     removeHyphensAndCapitalize,
     SupportBanner,
     TechInfo,
-    pkg,
     HighlightCompo,
     H2,
     H3
@@ -14,9 +13,18 @@
     import: 'default',
     eager: true
   });
-  const runeswebkitVersion = __RUNES_WEBKIT_VERSION__;
-  const runaticsVersion = __RUNATICS__;
-  let newPkg = $state({ ...pkg, runaticsVersion, runeswebkitVersion });
+  const pkg = {
+    pkgName: __NAME__,
+    pkgVersion: __VERSION__,
+    repoUrl: __GITHUBURL__,
+    runaticsVersion: __RUNATICS_VERSION__,
+    runesMetaTagsVersion: __RUNES_METATAGS_VERSION__,
+    svelteVersion: __SVELTE_VERSION__,
+    svelteKitVersion: __SVELTEKIT_VERSION__,
+    svelte5uilib: __SVELTE_5_UI_LIB_VERSION__,
+    svelteRuneHighlight: __SVELTE_RUNE_HIGHLIGHT_VERSION__,
+    viteVersion: __VITE_VERSION__
+  };
 </script>
 
 <SupportBanner>
@@ -74,4 +82,4 @@
 
 <HighlightCompo codeLang="ts" code={modules['./md/playwright-test-about.md'] as string} />
 
-<TechInfo {...newPkg} />
+<TechInfo {...pkg} />
