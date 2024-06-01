@@ -6,7 +6,6 @@ import svelteKitPackage from '@sveltejs/kit/package.json' assert { type: 'json' 
 import vitePackage from 'vite/package.json' assert { type: 'json' };
 import svelterunehighlightPackage from 'svelte-rune-highlight/package.json' assert { type: 'json' };
 import svelte5uilibPackage from 'svelte-5-ui-lib/package.json' assert { type: 'json' };
-import runesmetatagsPackage from 'runes-meta-tags/package.json' assert { type: 'json' };
 import runaticsPackage from './node_modules/runatics/package.json' assert { type: 'json' };
 
 export default defineConfig({
@@ -17,7 +16,6 @@ export default defineConfig({
     __VERSION__: JSON.stringify(pkg.version),
     __GITHUBURL__: JSON.stringify(pkg.repository.url),
     __RUNATICS_VERSION__: JSON.stringify(runaticsPackage.version),
-    __RUNES_METATAGS_VERSION__: JSON.stringify(runesmetatagsPackage.version),
     __SVELTE_VERSION__: JSON.stringify(sveltePackage.version),
     __SVELTEKIT_VERSION__: JSON.stringify(svelteKitPackage.version),
     __SVELTE_RUNE_HIGHLIGHT_VERSION__: JSON.stringify(svelterunehighlightPackage.version),
