@@ -5,7 +5,7 @@
   const localStorageName = toUpperSnakeCase(__NAME__) + '_CODE_BLOCK_STYLE';
 
   // @ts-ignore
-  let selected: string = $state(browser && (localStorage.getItem(localStorageName) ?? 'gigavolt'));
+  let selected: string = $state(browser && (localStorage.getItem(localStorageName) ?? 'night-owl'));
 
   const styles = Object.entries(stylesImport).map(([path, importFn]) => ({
     value: path.slice(path.lastIndexOf('/') + 1, -4),

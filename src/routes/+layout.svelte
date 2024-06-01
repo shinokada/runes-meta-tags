@@ -40,6 +40,6 @@
 <div class="mx-auto max-w-5xl lg:flex">
   <div class="relative h-full w-full overflow-y-auto px-8">
     {@render children()}
-    <Footer {brand} {lis} ulClass="dark_bg_theme" />
+    <Footer {brand} {lis} f_ulclass="dark_bg_theme" />
   </div>
 </div>
