@@ -29,8 +29,12 @@
       <meta name="twitter:creator" content={twitter.handle} />
     {/if}
 
-    {#if twitter?.site}
+    {#if twitter?.title}
       <meta name="twitter:title" content={twitter.title} />
+    {/if}
+
+    {#if twitter?.site}
+      <meta name="twitter:site" content={twitter.site} />
     {/if}
 
     {#if twitter?.description}
