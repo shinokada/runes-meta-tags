@@ -4,8 +4,7 @@
   const stylesImport = import.meta.glob('./highlight/styles/*.css');
   const localStorageName = toUpperSnakeCase(__NAME__) + '_CODE_BLOCK_STYLE';
 
-  // @ts-ignore
-  let selected: string = $state(browser && (localStorage.getItem(localStorageName) ?? 'night-owl'));
+  let selected = $state(browser && (localStorage.getItem(localStorageName) ?? 'night-owl'));
 
   const styles = Object.entries(stylesImport).map(([path, importFn]) => ({
     value: path.slice(path.lastIndexOf('/') + 1, -4),
@@ -22,7 +21,7 @@
       link.href = css.default;
       document.head.append(link);
     })();
-    if (browser) {
+    if (browser && selected) {
       // get selected style from localStorage
       localStorage.setItem(localStorageName, selected);
     }

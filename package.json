@@ -35,7 +35,7 @@
     "test:integration": "playwright test",
     "test:unit": "vitest",
     "gen:exports": "svelte-lib-helpers exports",
-    "gen:docs5": "svelte-lib-helpers docs5FromType",
+    "gen:docs5": "svelte-lib-helpers docs5",
     "gen:compo-data": "svelte-lib-helpers compo-data",
     "copy:package": "svelte-lib-helpers package",
     "lib-helpers": "npm run format && npm run gen:docs5 && npm run package && npm run gen:exports && npm run copy:package"

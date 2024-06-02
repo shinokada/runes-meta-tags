@@ -8,7 +8,6 @@
 
   let { children, data } = $props();
   const analyticsId = data.ANALYTICS_ID;
-  let currentUrl = $state($page.url.pathname);
 
   let metaTags = $state(
     $page.data.pageMetaTags
@@ -16,7 +15,6 @@
       : data.layoutMetaTags
   );
   $effect(() => {
-    currentUrl = $page.url.pathname;
     metaTags = $page.data.pageMetaTags
       ? deepMerge($page.data.layoutMetaTags, $page.data.pageMetaTags)
       : data.layoutMetaTags;

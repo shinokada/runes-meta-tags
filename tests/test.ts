@@ -15,7 +15,7 @@ test('index page has expected meta title', async ({ page }) => {
 
 test('index page has expected meta description', async ({ page }) => {
   const metaDescription = page.locator('meta[name="description"]');
-  await expect(metaDescription).toHaveAttribute('content', 'Meta tags for Runes.');
+  await expect(metaDescription).toHaveAttribute('content', 'Meta tag for Svelte Runes');
 });
 
 test('index page has expected meta keywords', async ({ page }) => {
@@ -27,7 +27,7 @@ test('index page has expected meta og', async ({ page }) => {
   const metaOgTitle = page.locator('meta[property="og:title"]');
   await expect(metaOgTitle).toHaveAttribute('content', 'Runes Meta Tags');
   const metaOgDescription = page.locator('meta[property="og:description"]');
-  await expect(metaOgDescription).toHaveAttribute('content', 'Meta tags for Runes.');
+  await expect(metaOgDescription).toHaveAttribute('content', 'Meta tag for Svelte Runes');
   const metaOgUrl = page.locator('meta[property="og:url"]');
   await expect(metaOgUrl).toHaveAttribute('content', 'http://localhost:4173/');
   const metaOgImage = page.locator('meta[property="og:image"]');
@@ -41,7 +41,7 @@ test('index page has expected meta twitter', async ({ page }) => {
   const metaTwitterTitle = page.locator('meta[name="twitter:title"]');
   await expect(metaTwitterTitle).toHaveAttribute('content', 'Runes Meta Tags');
   const metaTwitterDescription = page.locator('meta[name="twitter:description"]');
-  await expect(metaTwitterDescription).toHaveAttribute('content', 'Meta tags for Runes.');
+  await expect(metaTwitterDescription).toHaveAttribute('content', 'Meta tag for Svelte Runes');
   const metaTwitterImage = page.locator('meta[name="twitter:image"]');
   await expect(metaTwitterImage).toHaveAttribute(
     'content',

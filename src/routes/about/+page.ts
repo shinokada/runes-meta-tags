@@ -1,22 +1,23 @@
-import type { MetaProps } from '$lib';
-import { metaTitle, metaDescription, metaImg, splitAndCapitalize } from '$lib';
+import type { MetaProps } from '$lib/types.ts';
 
-export const load = ({ url }) => {
-  const title = metaTitle(url.pathname, __NAME__);
-  const basicDesc = splitAndCapitalize(__NAME__);
-  const description = metaDescription(url.pathname, basicDesc);
-  const image = metaImg(url.pathname, __NAME__);
+const title = 'About - Runes Meta Tags';
+const description = 'Meta tag for Svelte Runes';
+const image = 'https://open-graph-vercel.vercel.app/api/runes-meta-tags';
 
-  const pageMetaTags = {
+
+export const load = () => {
+  const pageMetaTags: MetaProps = {
     title,
     description,
     og: {
       title,
-      description
+      description,
+      image
     },
     twitter: {
       title,
-      description
+      description,
+      image
     }
   };
   return { pageMetaTags };
