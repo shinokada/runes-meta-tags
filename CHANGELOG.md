@@ -1,5 +1,11 @@
 # runes-meta-tags
 
+## 0.3.2
+
+### Patch Changes
+
+- 45a7070: fix: add twitter:title
+
 ## 0.3.1
 
 ### Patch Changes
