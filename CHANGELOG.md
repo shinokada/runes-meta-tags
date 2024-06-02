@@ -1,5 +1,11 @@
 # runes-meta-tags
 
+## 0.3.1
+
+### Patch Changes
+
+- e81fc5c: fix: remove .ts from types.ts and helpers.ts
+
 ## 0.3.0
 
 ### Minor Changes
