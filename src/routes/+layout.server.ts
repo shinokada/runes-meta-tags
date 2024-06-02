@@ -5,7 +5,6 @@ const description = 'Meta tag for Svelte Runes';
 const image = 'https://open-graph-vercel.vercel.app/api/runes-meta-tags';
 
 export const load = ({ url }) => {
-
   const layoutMetaTags = {
     title,
     description,

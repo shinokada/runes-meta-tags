@@ -1,4 +1,4 @@
-import type { AnyObject } from "./types.ts";
+import type { AnyObject } from './types.ts';
 
 export function deepMerge(target: AnyObject, source: AnyObject): AnyObject {
   const merged: AnyObject = Object.assign({}, target);

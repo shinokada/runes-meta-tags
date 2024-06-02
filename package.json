@@ -1,6 +1,6 @@
 {
   "name": "runes-meta-tags",
-  "version": "0.2.5",
+  "version": "0.3.0",
   "description": "Meta tag for Svelte Runes",
   "author": {
     "name": "Shinichi Okada",

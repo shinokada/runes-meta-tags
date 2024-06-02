@@ -1,5 +1,11 @@
 # runes-meta-tags
 
+## 0.3.0
+
+### Minor Changes
+
+- d3aad42: fix: remove Object.freeze and separate type and functions and import it to index
+
 ## 0.2.5
 
 ### Patch Changes
