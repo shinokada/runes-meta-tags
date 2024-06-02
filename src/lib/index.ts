@@ -5,10 +5,10 @@ import {
   metaTitle,
   metaDescription,
   metaImg
-} from './helpers.ts';
+} from './helpers';
 
 export { default as RunesMetaTags } from './RunesMetaTags.svelte';
-export * from './types.ts';
+export * from './types';
 export {
   deepMerge,
   removeHyphensAndCapitalize,
