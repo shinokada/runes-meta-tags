@@ -1,15 +1,16 @@
-<script>
+<script lang="ts">
   import '../app.pcss';
   import { Runatics } from 'runatics';
   import { RunesMetaTags, deepMerge } from '$lib';
   import { page } from '$app/stores';
   import { Footer, removeHyphensAndCapitalize } from 'runes-webkit';
   import Nav from './utils/Nav.svelte';
+  import type { MetaProps } from '$lib';
 
   let { children, data } = $props();
   const analyticsId = data.ANALYTICS_ID;
 
-  let metaTags = $state(
+  let metaTags: MetaProps = $state(
     $page.data.pageMetaTags
       ? deepMerge($page.data.layoutMetaTags, $page.data.pageMetaTags)
       : data.layoutMetaTags
@@ -38,6 +39,6 @@
 <div class="mx-auto max-w-5xl lg:flex">
   <div class="relative h-full w-full overflow-y-auto px-8">
     {@render children()}
-    <Footer {brand} {lis} f_ulclass="dark_bg_theme" />
+    <Footer {brand} {lis} ulClass="dark_bg_theme" />
   </div>
 </div>
