@@ -1,5 +1,12 @@
 import type { AnyObject } from './types.ts';
 
+/**
+ * Deep merges two objects, recursively merging nested objects.
+ *
+ * @param {AnyObject} target - The target object to merge into.
+ * @param {AnyObject} source - The source object to merge from.
+ * @return {AnyObject} The merged object.
+ */
 export function deepMerge(target: AnyObject, source: AnyObject): AnyObject {
   const merged: AnyObject = Object.assign({}, target);
   for (const key of Object.keys(source)) {
@@ -14,6 +21,12 @@ export function deepMerge(target: AnyObject, source: AnyObject): AnyObject {
   return merged;
 }
 
+/**
+ * Removes hyphens and capitalizes the first letter of each word in a given string.
+ *
+ * @param str - The input string to be processed.
+ * @return The processed string with hyphens removed and the first letter of each word capitalized.
+ */
 export function removeHyphensAndCapitalize(str: string) {
   // Capitalize the first letter (including after hyphens)
   const capitalized = str.replace(/(^|\s|-)\w/g, (match) => match.toUpperCase());
@@ -22,6 +35,12 @@ export function removeHyphensAndCapitalize(str: string) {
   return capitalized.replace(/-|\s{2,}/g, ' ');
 }
 
+/**
+ * Splits a string using '/' as the delimiter, removes hyphens from each word, and capitalizes the first letter of each word.
+ *
+ * @param text - The input string to be processed.
+ * @return The processed string with hyphens removed and the first letter of each word capitalized.
+ */
 export function splitAndCapitalize(text: string) {
   // Split the string using '/' as the delimiter
   const parts = text.split('/');
@@ -32,6 +51,13 @@ export function splitAndCapitalize(text: string) {
   return removeHyphensAndCapitalize(parts[parts.length - 1]);
 }
 
+/**
+ * Generates a meta title by combining the capitalized and cleaned up pathname and the cleaned up name.
+ *
+ * @param pathname - The pathname to be processed.
+ * @param name - The name to be processed.
+ * @return The generated meta title.
+ */
 export function metaTitle(pathname: string, name: string) {
   return splitAndCapitalize(pathname)
     ? `${splitAndCapitalize(pathname)} - ${removeHyphensAndCapitalize(name)}`
@@ -44,6 +70,13 @@ export function metaDescription(pathname: string, baseDescription: string) {
     : `${baseDescription}`;
 }
 
+/**
+ * Generates a meta image URL based on the provided pathname and site URL.
+ *
+ * @param :string pathname - The pathname to be processed.
+ * @param :string siteUrl - The site URL to be used in the generated URL.
+ * @return :string The generated meta image URL.
+ */
 export function metaImg(pathname: string, siteUrl: string) {
   return splitAndCapitalize(pathname)
     ? `https://open-graph-vercel.vercel.app/api/${siteUrl}?title=${splitAndCapitalize(pathname)}`
