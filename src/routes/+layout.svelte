@@ -10,7 +10,7 @@
   let { children, data } = $props();
   const analyticsId = data.ANALYTICS_ID;
 
-  let metaTags: MetaProps = $state(
+  let metaTags = $state(
     $page.data.pageMetaTags
       ? deepMerge($page.data.layoutMetaTags, $page.data.pageMetaTags)
       : data.layoutMetaTags
@@ -27,6 +27,7 @@
     href: 'https://codewithshin.com'
   };
   // const urlsToIncludeSwitcherAndSidebar = ['/guide/', '/guide2/', '/how-to-use'];
+  /*eslint no-undef: "off"*/
   const siteName = removeHyphensAndCapitalize(__NAME__);
   const twitterUrl = 'https://twitter.com/shinokada';
   const githubUrl = `https://github.com/shinokada/${__NAME__}`;

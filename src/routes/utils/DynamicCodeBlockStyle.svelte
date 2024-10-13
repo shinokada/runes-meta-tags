@@ -2,6 +2,7 @@
   import { browser } from '$app/environment';
   import { toUpperSnakeCase } from 'runes-webkit';
   const stylesImport = import.meta.glob('./highlight/styles/*.css');
+  /*eslint no-undef: "off"*/
   const localStorageName = toUpperSnakeCase(__NAME__) + '_CODE_BLOCK_STYLE';
 
   let selected = $state(browser && (localStorage.getItem(localStorageName) ?? 'night-owl'));
