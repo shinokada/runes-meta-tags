@@ -57,7 +57,6 @@
     "@sveltejs/vite-plugin-svelte": "4.0.0-next.7",
     "@types/eslint": "^9.6.1",
     "autoprefixer": "^10.4.20",
-    "deepmerge": "^4.3.1",
     "eslint": "^9.13.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-svelte": "2.44.1",
@@ -97,5 +96,8 @@
       "svelte": "./dist/RunesMetaTags.svelte"
     },
     "./package.json": "./package.json"
+  },
+  "dependencies": {
+    "deepmerge": "^4.3.1"
   }
 }
