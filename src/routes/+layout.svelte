@@ -1,7 +1,8 @@
 <script lang="ts">
   import '../app.pcss';
+  import deepmerge from 'deepmerge';
   import { Runatics } from 'runatics';
-  import { RunesMetaTags, deepMerge } from '$lib';
+  import { RunesMetaTags } from '$lib';
   import { page } from '$app/stores';
   import { Footer, removeHyphensAndCapitalize } from 'runes-webkit';
   import Nav from './utils/Nav.svelte';
@@ -10,17 +11,20 @@
   let { children, data } = $props();
   const analyticsId = data.ANALYTICS_ID;
 
-  let metaTags = $state(
+  let metaTags: object = $state(
     $page.data.pageMetaTags
-      ? deepMerge($page.data.layoutMetaTags, $page.data.pageMetaTags)
+      ? deepmerge($page.data.layoutMetaTags, $page.data.pageMetaTags)
       : data.layoutMetaTags
   );
   $effect(() => {
     metaTags = $page.data.pageMetaTags
-      ? deepMerge($page.data.layoutMetaTags, $page.data.pageMetaTags)
+      ? deepmerge($page.data.layoutMetaTags, $page.data.pageMetaTags)
       : data.layoutMetaTags;
     // $inspect('metaTags', metaTags)
   });
+
+  // $inspect('metaTags', typeof metaTags);
+  
   const lis = [{ name: 'About', href: '/about' }];
   const brand = {
     name: 'codewithshin.com',

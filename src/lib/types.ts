@@ -26,5 +26,5 @@ export interface MetaProps {
   twitter?: TwitterType;
   og?: OgType;
 }
-
+/* eslint-disable  @typescript-eslint/no-explicit-any */
 export type AnyObject = { [key: string]: any };

@@ -10,6 +10,7 @@ import type { AnyObject } from './types.ts';
 export function deepMerge(target: AnyObject, source: AnyObject): AnyObject {
   const merged: AnyObject = Object.assign({}, target);
   for (const key of Object.keys(source)) {
+    /* eslint-disable  @typescript-eslint/no-explicit-any */
     const targetValue: any = target[key];
     const sourceValue: any = source[key];
     if (typeof targetValue === 'object' && sourceValue !== null) {

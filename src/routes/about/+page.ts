@@ -1,7 +1,9 @@
+// routes/about/+page.ts
+
 import type { MetaProps } from '$lib/types.ts';
 
 const title = 'About - Runes Meta Tags';
-const description = 'Meta tag for Svelte Runes';
+const description = 'About page: Meta tag for Svelte Runes';
 const image = 'https://open-graph-vercel.vercel.app/api/runes-meta-tags';
 
 export const load = () => {
