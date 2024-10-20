@@ -92,5 +92,10 @@
 @component
 [Go to docs](https://runes-meta-tag.codewithshin.com/)
 ## Props
-@props: 
+@prop title
+@prop robots
+@prop description
+@prop keywords
+@prop twitter
+@prop og
 -->

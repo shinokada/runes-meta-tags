@@ -1,5 +1,11 @@
 # runes-meta-tags
 
+## 0.4.0
+
+### Minor Changes
+
+- d09faf1: feat: add deepmerge dependencies
+
 ## 0.3.2
 
 ### Patch Changes

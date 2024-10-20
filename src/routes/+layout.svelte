@@ -24,7 +24,7 @@
   });
 
   // $inspect('metaTags', typeof metaTags);
-  
+
   const lis = [{ name: 'About', href: '/about' }];
   const brand = {
     name: 'codewithshin.com',

@@ -1,11 +1,11 @@
 <script lang="ts">
-  const example = import.meta.glob("./+page.ts", {
-    query: "?raw",
-    import: "default",
+  const example = import.meta.glob('./+page.ts', {
+    query: '?raw',
+    import: 'default',
     eager: true
   }) as Record<string, string>;
 
-  import { HighlightCompo } from "runes-webkit";
+  import { HighlightCompo } from 'runes-webkit';
 </script>
 
 <h1>About</h1>
