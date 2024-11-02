@@ -6,7 +6,6 @@
   import { page } from '$app/stores';
   import { Footer, removeHyphensAndCapitalize } from 'runes-webkit';
   import Nav from './utils/Nav.svelte';
-  import type { MetaProps } from '$lib';
 
   let { children, data } = $props();
   const analyticsId = data.ANALYTICS_ID;

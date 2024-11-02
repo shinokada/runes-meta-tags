@@ -7,7 +7,7 @@
 
   let selected = $state(browser && (localStorage.getItem(localStorageName) ?? 'night-owl'));
 
-  const styles = Object.entries(stylesImport).map(([path, importFn]) => ({
+  const styles = Object.entries(stylesImport).map(([path]) => ({
     value: path.slice(path.lastIndexOf('/') + 1, -4),
     name: path.slice(path.lastIndexOf('/') + 1, -4)
   }));
