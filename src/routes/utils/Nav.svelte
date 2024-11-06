@@ -1,6 +1,6 @@
 <script lang="ts">
   import { twMerge } from 'tailwind-merge';
-  import type { ComponentType } from 'svelte';
+  import type { Component } from 'svelte';
   import {
     Navbar,
     NavLi,
@@ -13,24 +13,25 @@
     DropdownLi
   } from 'svelte-5-ui-lib';
   import { page } from '$app/stores';
-  import { GithubSolid, random_tailwind_color, DotsHorizontalOutline, XSolid } from 'runes-webkit';
+  import { GithubSolid, random_tailwind_color, DotsHorizontalOutline, XSolid, Bluesky } from 'runes-webkit';
   import DynamicCodeBlockStyle from './DynamicCodeBlockStyle.svelte';
   import { sineIn } from 'svelte/easing';
 
   type LiType = {
     name: string;
     href: string;
-    icon?: ComponentType;
+    icon?: Component;
   };
   interface Props {
     lis: LiType[];
     siteName: string;
     twitterUrl?: string;
     githubUrl?: string;
+    blueskyUrl?: string;
     headerClass?: string;
     urlsToIncludeSwitcher?: string[];
   }
-  let { lis, siteName, twitterUrl, githubUrl, headerClass }: Props = $props();
+  let { lis, siteName, twitterUrl, githubUrl, blueskyUrl, headerClass }: Props = $props();
 
   /* eslint-disable @typescript-eslint/no-unused-vars*/
   let currentUrl = $state($page.url.pathname);
@@ -85,14 +86,20 @@
       <div class="ml-auto flex items-center gap-4 lg:order-1">
         <DynamicCodeBlockStyle />
         <DotsHorizontalOutline onclick={dropdown.toggle} class="ml-4 dark:text-white" size="lg" />
+        <Darkmode class="m-0 p-2" />
         <div class="relative">
           <Dropdown
             {dropdownStatus}
             {closeDropdown}
             params={transitionParams}
-            class="absolute -left-[50px] top-2 w-12 pl-1.5"
+            class="absolute -left-[104px] top-2 w-12 p-1.5"
           >
-            <DropdownUl>
+            <DropdownUl class="py-0">
+              {#if blueskyUrl}
+                <DropdownLi href={blueskyUrl} target="_blank" aClass="p-0.5 m-0">
+                  <Bluesky size="30" />
+                </DropdownLi>
+              {/if}
               {#if twitterUrl}
                 <DropdownLi href={twitterUrl} target="_blank" aClass="p-2 m-0"
                   ><XSolid /></DropdownLi
@@ -100,12 +107,9 @@
               {/if}
               {#if githubUrl}
                 <DropdownLi href={githubUrl} target="_blank" aClass="p-2 m-0">
-                  <GithubSolid />
+                  <GithubSolid/>
                 </DropdownLi>
               {/if}
-              <DropdownLi>
-                <Darkmode class="m-0 p-2" />
-              </DropdownLi>
             </DropdownUl>
           </Dropdown>
         </div>
