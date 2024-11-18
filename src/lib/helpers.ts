@@ -1,24 +1,41 @@
 import type { AnyObject } from './types.ts';
 
 /**
- * Deep merges two objects, recursively merging nested objects.
+ * Deep merges two objects of the same type.
  *
- * @param {AnyObject} target - The target object to merge into.
- * @param {AnyObject} source - The source object to merge from.
- * @return {AnyObject} The merged object.
+ * @template T - The type of the objects to merge.
+ * @param {T} target - The target object to merge into.
+ * @param {Partial<T>} source - The source object to merge from.
+ * @return {T} - The merged object.
  */
-export function deepMerge(target: AnyObject, source: AnyObject): AnyObject {
-  const merged: AnyObject = Object.assign({}, target);
-  for (const key of Object.keys(source)) {
-    /* eslint-disable  @typescript-eslint/no-explicit-any */
-    const targetValue: any = target[key];
-    const sourceValue: any = source[key];
-    if (typeof targetValue === 'object' && sourceValue !== null) {
-      merged[key] = deepMerge(targetValue, sourceValue);
-    } else if (sourceValue !== undefined) {
-      merged[key] = sourceValue;
+export function deepMerge<T extends object>(target: T, source: Partial<T>): T {
+  const merged = { ...target } as T;
+
+  for (const key in source) {
+    if (key in target) {
+      const targetValue = target[key];
+      const sourceValue = source[key];
+
+      if (
+        sourceValue &&
+        targetValue &&
+        typeof sourceValue === 'object' &&
+        typeof targetValue === 'object' &&
+        !Array.isArray(sourceValue) &&
+        !Array.isArray(targetValue)
+      ) {
+        // Assert the types for the recursive merge
+        merged[key] = deepMerge(targetValue as object, sourceValue as object) as T[Extract<
+          keyof T,
+          string
+        >];
+      } else if (sourceValue !== undefined) {
+        // Assert the type for direct assignment
+        merged[key] = sourceValue as T[Extract<keyof T, string>];
+      }
     }
   }
+
   return merged;
 }
 

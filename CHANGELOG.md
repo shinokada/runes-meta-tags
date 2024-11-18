@@ -1,5 +1,17 @@
 # runes-meta-tags
 
+## 0.4.2
+
+### Patch Changes
+
+- fix: deepMerge update
+
+## 0.4.1
+
+### Patch Changes
+
+- fix: implementation update in +layout
+
 ## 0.4.0
 
 ### Minor Changes

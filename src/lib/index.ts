@@ -9,6 +9,7 @@ import {
 
 export { default as RunesMetaTags } from './RunesMetaTags.svelte';
 export * from './types';
+
 export {
   deepMerge,
   removeHyphensAndCapitalize,

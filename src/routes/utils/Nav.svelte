@@ -13,7 +13,13 @@
     DropdownLi
   } from 'svelte-5-ui-lib';
   import { page } from '$app/stores';
-  import { GithubSolid, random_tailwind_color, DotsHorizontalOutline, XSolid, Bluesky } from 'runes-webkit';
+  import {
+    GithubSolid,
+    random_tailwind_color,
+    DotsHorizontalOutline,
+    XSolid,
+    Bluesky
+  } from 'runes-webkit';
   import DynamicCodeBlockStyle from './DynamicCodeBlockStyle.svelte';
   import { sineIn } from 'svelte/easing';
 
@@ -107,7 +113,7 @@
               {/if}
               {#if githubUrl}
                 <DropdownLi href={githubUrl} target="_blank" aClass="p-2 m-0">
-                  <GithubSolid/>
+                  <GithubSolid />
                 </DropdownLi>
               {/if}
             </DropdownUl>
