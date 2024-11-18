@@ -1,6 +1,5 @@
 <script lang="ts">
   import '../app.pcss';
-  // import deepmerge from 'deepmerge';
   import { Runatics } from 'runatics';
   import { RunesMetaTags, type MetaProps, deepMerge } from '$lib';
   import { page } from '$app/stores';

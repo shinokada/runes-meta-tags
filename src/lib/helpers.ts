@@ -1,5 +1,3 @@
-import type { AnyObject } from './types.ts';
-
 /**
  * Deep merges two objects of the same type.
  *

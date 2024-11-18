@@ -5,7 +5,6 @@ import type { MetaProps } from '$lib/types.ts';
 const title = 'About - Runes Meta Tags';
 const description = 'About page: Meta tag for Svelte Runes';
 const image = 'https://open-graph-vercel.vercel.app/api/runes-meta-tags';
-import { fetchPackageVersions } from './npm-version';
 
 export const load = () => {
   const pageMetaTags: MetaProps = {
