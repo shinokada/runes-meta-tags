@@ -1,8 +1,8 @@
 <script lang="ts">
-  import '../app.pcss';
+  import '../app.css';
   import { Runatics } from 'runatics';
   import { RunesMetaTags, type MetaProps, deepMerge } from '$lib';
-  import { page } from '$app/stores';
+  import { page } from '$app/state';
   import { Footer, removeHyphensAndCapitalize } from 'runes-webkit';
   import Nav from './utils/Nav.svelte';
 
@@ -10,14 +10,14 @@
   const analyticsId = data.ANALYTICS_ID;
 
   let metaTags = $state<MetaProps>(
-    $page.data.pageMetaTags
-      ? deepMerge<MetaProps>(data.layoutMetaTags, $page.data.pageMetaTags)
+    page.data.pageMetaTags
+      ? deepMerge<MetaProps>(data.layoutMetaTags, page.data.pageMetaTags)
       : data.layoutMetaTags
   );
 
   $effect(() => {
-    metaTags = $page.data.pageMetaTags
-      ? deepMerge<MetaProps>(data.layoutMetaTags, $page.data.pageMetaTags)
+    metaTags = page.data.pageMetaTags
+      ? deepMerge<MetaProps>(data.layoutMetaTags, page.data.pageMetaTags)
       : data.layoutMetaTags;
   });
 
@@ -41,9 +41,9 @@
 <Runatics {analyticsId} />
 <RunesMetaTags {...metaTags} />
 <Nav {lis} {siteName} {twitterUrl} {githubUrl} {blueskyUrl} />
-<div class="mx-auto max-w-5xl lg:flex">
+<div class="mx-auto max-w-5xl lg:flex mb-16">
   <div class="relative h-full w-full overflow-y-auto px-8">
     {@render children()}
-    <Footer {brand} {lis} ulClass="dark_bg_theme" />
   </div>
 </div>
+<Footer {brand} {lis} ulClass="dark_bg_theme" divClass="max-w-5xl" />
