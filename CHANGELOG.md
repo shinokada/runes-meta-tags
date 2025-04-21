@@ -1,5 +1,11 @@
 # runes-meta-tags
 
+## 0.4.3
+
+### Patch Changes
+
+- fix: update types and RunesMetaTags'
+
 ## 0.4.2
 
 ### Patch Changes
