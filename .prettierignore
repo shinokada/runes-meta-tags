@@ -2,3 +2,7 @@
 package-lock.json
 pnpm-lock.yaml
 yarn.lock
+/src/routes/md/
+*.html
+/src/routes/utils/highlight/*
+/.vercel
