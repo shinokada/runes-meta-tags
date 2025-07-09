@@ -1,5 +1,11 @@
 # runes-meta-tags
 
+## 0.4.4
+
+### Patch Changes
+
+- fix: add baseUrl param to metaImg function
+
 ## 0.4.3
 
 ### Patch Changes

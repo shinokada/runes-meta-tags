@@ -89,12 +89,17 @@ export function metaDescription(pathname: string, baseDescription: string) {
 /**
  * Generates a meta image URL based on the provided pathname and site URL.
  *
- * @param :string pathname - The pathname to be processed.
- * @param :string siteUrl - The site URL to be used in the generated URL.
- * @return :string The generated meta image URL.
+ * @param pathname - The pathname to be processed.
+ * @param siteUrl - The site URL to be used in the generated URL.
+ * @param baseUrl - The base URL for the open graph service. Defaults to 'https://open-graph-vercel.vercel.app/api/'.
+ * @return The generated meta image URL.
  */
-export function metaImg(pathname: string, siteUrl: string) {
+export function metaImg(
+	pathname: string,
+	siteUrl: string,
+	baseUrl: string = 'https://open-graph-vercel.vercel.app/api/'
+) {
 	return splitAndCapitalize(pathname)
-		? `https://open-graph-vercel.vercel.app/api/${siteUrl}?title=${splitAndCapitalize(pathname)}`
-		: `https://open-graph-vercel.vercel.app/api/${siteUrl}`;
+		? `${baseUrl}${siteUrl}?title=${splitAndCapitalize(pathname)}`
+		: `${baseUrl}${siteUrl}`;
 }
