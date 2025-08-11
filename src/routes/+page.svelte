@@ -1,52 +1,35 @@
 <script lang="ts">
-	import {
-		removeHyphensAndCapitalize,
-		SupportBanner,
-		TechInfo,
-		HighlightCompo,
-		H2,
-		H3
-	} from 'runes-webkit';
+  import { removeHyphensAndCapitalize, SupportBanner, TechInfo, HighlightCompo, H2, H3 } from 'runes-webkit';
 
-	const modules = import.meta.glob('./md/*.md', {
-		query: '?raw',
-		import: 'default',
-		eager: true
-	});
-	/*eslint no-undef: "off"*/
-	const pkg = {
-		pkgName: __NAME__,
-		pkgVersion: __VERSION__,
-		repoUrl: __GITHUBURL__,
-		runaticsVersion: __RUNATICS_VERSION__,
-		svelteVersion: __SVELTE_VERSION__,
-		svelteKitVersion: __SVELTEKIT_VERSION__,
-		svelte5uilibVersion: __SVELTE_5_UI_LIB_VERSION__,
-		svelteRuneHighlight: __SVELTE_RUNE_HIGHLIGHT_VERSION__,
-		viteVersion: __VITE_VERSION__
-	};
+  const modules = import.meta.glob('./md/*.md', {
+    query: '?raw',
+    import: 'default',
+    eager: true
+  });
+  /*eslint no-undef: "off"*/
+  const pkg = {
+    pkgName: __NAME__,
+    pkgVersion: __VERSION__,
+    repoUrl: __GITHUBURL__,
+    runaticsVersion: __RUNATICS_VERSION__,
+    svelteVersion: __SVELTE_VERSION__,
+    svelteKitVersion: __SVELTEKIT_VERSION__,
+    svelteRuneHighlight: __SVELTE_RUNE_HIGHLIGHT_VERSION__,
+    viteVersion: __VITE_VERSION__
+  };
 </script>
 
-<SupportBanner class="mt-8">
-	To Keep It Going, Please Show Your Love.<a
-		href="https://ko-fi.com/Z8Z2CHALG"
-		target="_blank"
-		aria-label="Buy Me a Coffee at ko-fi.com"
-		><img
-			height="40"
-			style="border:0px;height:40px;"
-			src="https://storage.ko-fi.com/cdn/kofi3.png?v=3"
-			alt="Buy Me a Coffee at ko-fi.com"
-		/></a
-	>
+<SupportBanner class="mt-8 relative">
+  To Keep It Going, Please Show Your Love.<a href="https://ko-fi.com/Z8Z2CHALG" target="_blank" aria-label="Buy Me a Coffee at ko-fi.com"
+    ><img height="40" style="border:0px;height:40px;" src="https://storage.ko-fi.com/cdn/kofi3.png?v=3" alt="Buy Me a Coffee at ko-fi.com" /></a
+  >
 </SupportBanner>
 
 <h1 class="my-8 flex justify-center">{removeHyphensAndCapitalize(__NAME__)}</h1>
 
 <p>
-	Runes Meta Tags manages the meta tags for a web page. It allows you to easily configure various
-	meta tags including basic SEO (Search Engine Optimization) information, robots meta tag, and
-	social media specific meta tags for Twitter and Open Graph.
+  Runes Meta Tags manages the meta tags for a web page. It allows you to easily configure various meta tags including basic SEO (Search Engine Optimization) information, robots meta tag, and social
+  media specific meta tags for Twitter and Open Graph.
 </p>
 
 <H2>Installation</H2>
@@ -60,8 +43,7 @@
 
 <H2>+layout.svelte</H2>
 <p>
-	Import <code>RunesMetaTags</code> and <code>deepMerge</code> from <code>runes-meta-tags</code>.
-	Add <code>data</code> to the <code>$props()</code>.
+  Import <code>RunesMetaTags</code> and <code>deepMerge</code> from <code>runes-meta-tags</code>. Add <code>data</code> to the <code>$props()</code>.
 </p>
 
 <HighlightCompo codeLang="ts" code={modules['./md/layout-svelte.md'] as string} />

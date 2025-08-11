@@ -7,34 +7,24 @@
  * @return {T} - The merged object.
  */
 export function deepMerge<T extends object>(target: T, source: Partial<T>): T {
-	const merged = { ...target } as T;
+  const merged = { ...target } as T;
 
-	for (const key in source) {
-		if (key in target) {
-			const targetValue = target[key];
-			const sourceValue = source[key];
+  for (const key in source) {
+    if (key in target) {
+      const targetValue = target[key];
+      const sourceValue = source[key];
 
-			if (
-				sourceValue &&
-				targetValue &&
-				typeof sourceValue === 'object' &&
-				typeof targetValue === 'object' &&
-				!Array.isArray(sourceValue) &&
-				!Array.isArray(targetValue)
-			) {
-				// Assert the types for the recursive merge
-				merged[key] = deepMerge(targetValue as object, sourceValue as object) as T[Extract<
-					keyof T,
-					string
-				>];
-			} else if (sourceValue !== undefined) {
-				// Assert the type for direct assignment
-				merged[key] = sourceValue as T[Extract<keyof T, string>];
-			}
-		}
-	}
+      if (sourceValue && targetValue && typeof sourceValue === 'object' && typeof targetValue === 'object' && !Array.isArray(sourceValue) && !Array.isArray(targetValue)) {
+        // Assert the types for the recursive merge
+        merged[key] = deepMerge(targetValue as object, sourceValue as object) as T[Extract<keyof T, string>];
+      } else if (sourceValue !== undefined) {
+        // Assert the type for direct assignment
+        merged[key] = sourceValue as T[Extract<keyof T, string>];
+      }
+    }
+  }
 
-	return merged;
+  return merged;
 }
 
 /**
@@ -44,11 +34,11 @@ export function deepMerge<T extends object>(target: T, source: Partial<T>): T {
  * @return The processed string with hyphens removed and the first letter of each word capitalized.
  */
 export function removeHyphensAndCapitalize(str: string) {
-	// Capitalize the first letter (including after hyphens)
-	const capitalized = str.replace(/(^|\s|-)\w/g, (match) => match.toUpperCase());
+  // Capitalize the first letter (including after hyphens)
+  const capitalized = str.replace(/(^|\s|-)\w/g, (match) => match.toUpperCase());
 
-	// Remove hyphens and ensure spaces after words
-	return capitalized.replace(/-|\s{2,}/g, ' ');
+  // Remove hyphens and ensure spaces after words
+  return capitalized.replace(/-|\s{2,}/g, ' ');
 }
 
 /**
@@ -58,13 +48,13 @@ export function removeHyphensAndCapitalize(str: string) {
  * @return The processed string with hyphens removed and the first letter of each word capitalized.
  */
 export function splitAndCapitalize(text: string) {
-	// Split the string using '/' as the delimiter
-	const parts = text.split('/');
+  // Split the string using '/' as the delimiter
+  const parts = text.split('/');
 
-	// If there are no parts, return an empty string e.g home returns /
-	if (!parts.length) return '';
+  // If there are no parts, return an empty string e.g home returns /
+  if (!parts.length) return '';
 
-	return removeHyphensAndCapitalize(parts[parts.length - 1]);
+  return removeHyphensAndCapitalize(parts[parts.length - 1]);
 }
 
 /**
@@ -75,15 +65,11 @@ export function splitAndCapitalize(text: string) {
  * @return The generated meta title.
  */
 export function metaTitle(pathname: string, name: string) {
-	return splitAndCapitalize(pathname)
-		? `${splitAndCapitalize(pathname)} - ${removeHyphensAndCapitalize(name)}`
-		: `${removeHyphensAndCapitalize(name)}`;
+  return splitAndCapitalize(pathname) ? `${splitAndCapitalize(pathname)} - ${removeHyphensAndCapitalize(name)}` : `${removeHyphensAndCapitalize(name)}`;
 }
 
 export function metaDescription(pathname: string, baseDescription: string) {
-	return splitAndCapitalize(pathname)
-		? `${splitAndCapitalize(pathname)} - ${baseDescription}`
-		: `${baseDescription}`;
+  return splitAndCapitalize(pathname) ? `${splitAndCapitalize(pathname)} - ${baseDescription}` : `${baseDescription}`;
 }
 
 /**
@@ -94,12 +80,6 @@ export function metaDescription(pathname: string, baseDescription: string) {
  * @param baseUrl - The base URL for the open graph service. Defaults to 'https://open-graph-vercel.vercel.app/api/'.
  * @return The generated meta image URL.
  */
-export function metaImg(
-	pathname: string,
-	siteUrl: string,
-	baseUrl: string = 'https://open-graph-vercel.vercel.app/api/'
-) {
-	return splitAndCapitalize(pathname)
-		? `${baseUrl}${siteUrl}?title=${splitAndCapitalize(pathname)}`
-		: `${baseUrl}${siteUrl}`;
+export function metaImg(pathname: string, siteUrl: string, baseUrl: string = 'https://open-graph-vercel.vercel.app/api/') {
+  return splitAndCapitalize(pathname) ? `${baseUrl}${siteUrl}?title=${splitAndCapitalize(pathname)}` : `${baseUrl}${siteUrl}`;
 }

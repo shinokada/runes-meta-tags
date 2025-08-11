@@ -1,145 +1,47 @@
 <script lang="ts">
-	import { twMerge } from 'tailwind-merge';
-	import type { Component } from 'svelte';
-	import {
-		Navbar,
-		NavLi,
-		NavBrand,
-		NavUl,
-		uiHelpers,
-		Darkmode,
-		Dropdown,
-		DropdownUl,
-		DropdownLi
-	} from 'svelte-5-ui-lib';
-	import { page } from '$app/stores';
-	import {
-		GithubSolid,
-		random_tailwind_color,
-		DotsHorizontalOutline,
-		XSolid,
-		Bluesky
-	} from 'runes-webkit';
-	import DynamicCodeBlockStyle from './DynamicCodeBlockStyle.svelte';
-	import { sineIn } from 'svelte/easing';
+  import { Navbar, NavLi, NavBrand, NavUl, DarkMode, Dropdown, NavHamburger, DropdownItem } from 'flowbite-svelte';
+  import { page } from '$app/state';
+  import { GithubSolid, DotsHorizontalOutline, XSolid, Bluesky } from 'runes-webkit';
+  import DynamicCodeBlockStyle from './DynamicCodeBlockStyle.svelte';
 
-	let activeUrl = $state($page.url.pathname);
-	$effect(() => {
-		activeUrl = $page.url.pathname;
-	});
+  let activeUrl = $state(page.url.pathname);
+  $effect(() => {
+    activeUrl = page.url.pathname;
+  });
 
-	type LiType = {
-		name: string;
-		href: string;
-		icon?: Component;
-	};
-	interface Props {
-		lis: LiType[];
-		siteName: string;
-		twitterUrl?: string;
-		githubUrl?: string;
-		blueskyUrl?: string;
-		headerClass?: string;
-		urlsToIncludeSwitcher?: string[];
-	}
-	let { lis, siteName, twitterUrl, githubUrl, blueskyUrl, headerClass }: Props = $props();
-
-	/* eslint-disable @typescript-eslint/no-unused-vars*/
-	let currentUrl = $state($page.url.pathname);
-	let nav = uiHelpers();
-
-	// let include = $derived(isIncluded(currentUrl, urlsToIncludeSwitcher));
-
-	let navStatus = $state(false);
-	let toggleNav = nav.toggle;
-	let closeNav = nav.close;
-	let divClass = 'ml-auto w-full';
-	let ulclass = 'dark:lg:bg-transparent lg:space-x-4';
-	let navClass =
-		'w-full divide-gray-200 border-gray-200 bg-gray-50 dark_bg_theme text-gray-500 dark:divide-gray-700 dark:border-gray-700 dark:transparent dark:text-gray-400 sm:px-4';
-	let headerCls = twMerge(
-		'sticky top-0 z-40 mx-auto w-full flex-none border-b border-gray-200 bg-gray-100 dark:border-gray-600 dark:bg-sky-950',
-		headerClass
-	);
-	let transitionParams = {
-		y: 0,
-		duration: 200,
-		easing: sineIn
-	};
-	let dropdown = uiHelpers();
-
-	let dropdownStatus = $state(false);
-	let closeDropdown = dropdown.close;
-
-	$effect(() => {
-		navStatus = nav.isOpen;
-		dropdownStatus = dropdown.isOpen;
-		currentUrl = $page.url.pathname;
-	});
+  const githubUrl = `https://github.com/shinokada/${__NAME__}`;
+  const twitterUrl = 'https://twitter.com/shinokada';
+  const blueskyUrl = 'https://bsky.app/profile/codewithshin.com';
+  let activeClass = 'p-2 text-base hover:text-gray-600';
+  let nonActiveClass = 'p-2 text-base hover:text-gray-600';
 </script>
 
-{#snippet navLi(lis: LiType[])}
-	{#each lis as { name, href, icon }}
-		{#if icon}
-			<icon class="mb-3 h-8 w-8 {random_tailwind_color()}"></icon>
-		{/if}
-		<NavLi {href}>{name}</NavLi>
-	{/each}
-{/snippet}
-
-<header class={headerCls}>
-	<Navbar {navClass} {toggleNav} {closeNav} {navStatus} breakPoint="lg" fluid div2Class={divClass}>
-		{#snippet brand()}
-			<NavBrand
-				{siteName}
-				spanClass="self-center whitespace-nowrap text-2xl font-semibold text-primary-900 dark:text-primary-500"
-			/>
-			<div class="ml-auto flex items-center gap-4 lg:order-1">
-				<DynamicCodeBlockStyle />
-				<DotsHorizontalOutline onclick={dropdown.toggle} class="ml-4 dark:text-white" size="lg" />
-				<Darkmode class="m-0 p-2" />
-				<div class="relative">
-					<Dropdown
-						{dropdownStatus}
-						{closeDropdown}
-						params={transitionParams}
-						class="absolute top-2 -left-[104px] w-12 p-1.5"
-					>
-						<DropdownUl class="py-0">
-							{#if blueskyUrl}
-								<DropdownLi href={blueskyUrl} target="_blank" aClass="p-0.5 m-0">
-									<Bluesky size="30" />
-								</DropdownLi>
-							{/if}
-							{#if twitterUrl}
-								<DropdownLi href={twitterUrl} target="_blank" aClass="p-2 m-0"
-									><XSolid /></DropdownLi
-								>
-							{/if}
-							{#if githubUrl}
-								<DropdownLi href={githubUrl} target="_blank" aClass="p-2 m-0">
-									<GithubSolid />
-								</DropdownLi>
-							{/if}
-						</DropdownUl>
-					</Dropdown>
-				</div>
-			</div>
-		{/snippet}
-		<NavUl {activeUrl} class={ulclass}>
-			{@render navLi(lis)}
-		</NavUl>
-	</Navbar>
-</header>
-
-<!--
-@component
-[Go to docs](https://runes-webkit.codewithshin.com/)
-## Props
-@props: lis: LiType[];
-@props:siteName: string;
-@props:twitterUrl?: string;
-@props:githubUrl?: string;
-@props:headerClass?: string;
-@props:urlsToIncludeSwitcher?: string[];
--->
+<Navbar fluid class="sticky top-0 z-40 mx-auto w-full flex-none border-b border-gray-200 bg-gray-100 dark:border-gray-600 dark:bg-stone-950" navContainerClass="md:justify-between">
+  <NavBrand href="/">
+    <span class="text-primary-900 dark:text-primary-500 self-center text-2xl font-semibold whitespace-nowrap lg:text-3xl">Runes Meta Tags</span>
+  </NavBrand>
+  <div class="flex justify-end md:order-2">
+		<NavHamburger class="order-3" />
+    <DynamicCodeBlockStyle class="hidden md:block"/>
+    <DotsHorizontalOutline class="mt-1.5 mr-4 ml-6 dark:text-white" size="lg" />
+    <Dropdown simple class="p-1">
+      {#if blueskyUrl}
+        <DropdownItem href={blueskyUrl} target="_blank" class="m-0 p-0.5">
+          <Bluesky size="30" />
+        </DropdownItem>
+      {/if}
+      {#if twitterUrl}
+        <DropdownItem href={twitterUrl} target="_blank" class="m-0 p-2"><XSolid /></DropdownItem>
+      {/if}
+      {#if githubUrl}
+        <DropdownItem href={githubUrl} target="_blank" class="m-0 p-2">
+          <GithubSolid />
+        </DropdownItem>
+      {/if}
+    </Dropdown>
+    <DarkMode class="m-0 p-2" />
+  </div>
+  <NavUl breakpoint="lg" {activeUrl} class="order-2 md:order-1" classes={{ active: activeClass, nonActive: nonActiveClass, ul: 'p-0' }}>
+    <NavLi href="/about">About</NavLi>
+  </NavUl>
+</Navbar>
