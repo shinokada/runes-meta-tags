@@ -16,7 +16,7 @@
   let nonActiveClass = 'p-2 text-base hover:text-gray-600';
 </script>
 
-<Navbar fluid class="sticky top-0 z-40 mx-auto w-full flex-none border-b border-gray-200 bg-gray-100 dark:border-gray-600 dark:bg-stone-950" navContainerClass="md:justify-between">
+<Navbar fluid class="sticky top-0 z-40 mx-auto w-full flex-none border-b border-gray-200 bg-gray-100 dark:border-gray-600 dark:bg-stone-900" navContainerClass="md:justify-between">
   <NavBrand href="/">
     <span class="text-primary-900 dark:text-primary-500 self-center text-2xl font-semibold whitespace-nowrap lg:text-3xl">Runes Meta Tags</span>
   </NavBrand>
