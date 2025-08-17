@@ -12,4 +12,4 @@
 
 <p>Check meta tags using the developer tools.</p>
 
-<HighlightCompo code={example['./+page.ts'] as string} clipboardClass="top-2"/>
+<HighlightCompo code={example['./+page.ts'] as string} clipboardClass="top-2" />

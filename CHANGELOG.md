@@ -1,5 +1,11 @@
 # runes-meta-tags
 
+## 0.4.5
+
+### Patch Changes
+
+- docs(style): update color
+
 ## 0.4.4
 
 ### Patch Changes

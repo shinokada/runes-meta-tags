@@ -21,8 +21,8 @@
     <span class="text-primary-900 dark:text-primary-500 self-center text-2xl font-semibold whitespace-nowrap lg:text-3xl">Runes Meta Tags</span>
   </NavBrand>
   <div class="flex justify-end md:order-2">
-		<NavHamburger class="order-3" />
-    <DynamicCodeBlockStyle class="hidden md:block"/>
+    <NavHamburger class="order-3" />
+    <DynamicCodeBlockStyle class="hidden md:block" />
     <DotsHorizontalOutline class="mt-1.5 mr-4 ml-6 dark:text-white" size="lg" />
     <Dropdown simple class="p-1">
       {#if blueskyUrl}
