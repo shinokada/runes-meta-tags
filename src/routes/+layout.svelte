@@ -30,4 +30,4 @@
     {@render children()}
   </div>
 </div>
-<Footer {brand} {lis} ulClass="dark_bg_theme" divClass="max-w-5xl" />
+<Footer {brand} {lis} footerClass="dark:bg-stone-900" divClass="max-w-5xl" />

@@ -67,4 +67,4 @@
 
 <HighlightCompo codeLang="ts" code={modules['./md/playwright-test-about.md'] as string}  />
 
-<TechInfo {...pkg} />
+<TechInfo {...pkg} class="dark:bg-stone-900"/>
