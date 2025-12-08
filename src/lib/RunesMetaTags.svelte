@@ -18,8 +18,6 @@
    * to { name: 'twitter:card' }
    */
   function createDynamicAttribute(tag: GenericMetaTag) {
-    // We dynamically create a new object where the key is tag.attribute ('name' or 'property')
-    // and the value is tag.key ('og:title' or 'twitter:card').
     return { [tag.attribute]: tag.key };
   }
 </script>
@@ -49,7 +47,8 @@
     <link rel="canonical" href={canonical} />
   {/if}
 
-  {#each allMetaTags as tag, i (i)}
+  <!-- Use composite key for better reactivity -->
+  {#each allMetaTags as tag (tag.attribute + tag.key)}
     <meta {...createDynamicAttribute(tag)} content={tag.content} />
   {/each}
 </svelte:head>

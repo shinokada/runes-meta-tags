@@ -4,11 +4,7 @@
   import { GithubSolid, DotsHorizontalOutline, XSolid, Bluesky } from 'runes-webkit';
   import DynamicCodeBlockStyle from './DynamicCodeBlockStyle.svelte';
 
-  let activeUrl = $derived(page.url.pathname);
-  $effect(() => {
-    activeUrl = page.url.pathname;
-  });
-
+  const activeUrl = $derived(page.url.pathname);
   const githubUrl = `https://github.com/shinokada/${__NAME__}`;
   const twitterUrl = 'https://twitter.com/shinokada';
   const blueskyUrl = 'https://bsky.app/profile/codewithshin.com';
