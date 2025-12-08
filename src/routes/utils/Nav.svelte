@@ -4,7 +4,7 @@
   import { GithubSolid, DotsHorizontalOutline, XSolid, Bluesky } from 'runes-webkit';
   import DynamicCodeBlockStyle from './DynamicCodeBlockStyle.svelte';
 
-  let activeUrl = $state(page.url.pathname);
+  let activeUrl = $derived(page.url.pathname);
   $effect(() => {
     activeUrl = page.url.pathname;
   });
