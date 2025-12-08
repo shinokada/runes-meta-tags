@@ -81,6 +81,7 @@ export interface GenericMetaTag {
   attribute: 'name' | 'property';
   key: string; // The specific key/value of the attribute (e.g., 'og:title', 'twitter:card').
   content: string;
+  id?: string; // Optional unique identifier for Svelte keying
 }
 
 /* eslint-disable  @typescript-eslint/no-explicit-any */

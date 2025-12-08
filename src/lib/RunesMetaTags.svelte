@@ -47,8 +47,8 @@
     <link rel="canonical" href={canonical} />
   {/if}
 
-  <!-- Use composite key for better reactivity -->
-  {#each allMetaTags as tag (tag.attribute + tag.key)}
+  <!-- Use index-based keying to prevent collisions with duplicate tags (e.g., multiple article:author) -->
+  {#each allMetaTags as tag, index (tag.attribute + ':' + tag.key + ':' + index)}
     <meta {...createDynamicAttribute(tag)} content={tag.content} />
   {/each}
 </svelte:head>

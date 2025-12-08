@@ -104,7 +104,7 @@ function mapToMetaTags(obj: AnyObject, prefix: string, attribute: 'name' | 'prop
 
     const metaKeySuffix = keyMap[key] || key.replace(/([A-Z])/g, (g) => `-${g[0].toLowerCase()}`);
     const metaKey = `${prefix}${metaKeySuffix}`;
-    const content = typeof value === 'number' ? value.toString() : value;
+    const content = String(value);
 
     tags.push({
       attribute,
@@ -136,13 +136,17 @@ export function generateTwitterTags(twitter: TwitterType): GenericMetaTag[] {
   tags.push(...mapToMetaTags(twitter as AnyObject, 'twitter:', 'name', twitterMap, excludeKeys));
 
   // Handle App Card specific properties
-  if (twitter.card === 'app' && twitter.appName) {
-    tags.push(
-      { attribute: 'name', key: 'twitter:app:name:iphone', content: twitter.appName },
-      { attribute: 'name', key: 'twitter:app:name:ipad', content: twitter.appName },
-      { attribute: 'name', key: 'twitter:app:name:googleplay', content: twitter.appName }
-    );
+  if (twitter.card === 'app') {
+    // App name tags (optional but recommended)
+    if (twitter.appName) {
+      tags.push(
+        { attribute: 'name', key: 'twitter:app:name:iphone', content: twitter.appName },
+        { attribute: 'name', key: 'twitter:app:name:ipad', content: twitter.appName },
+        { attribute: 'name', key: 'twitter:app:name:googleplay', content: twitter.appName }
+      );
+    }
 
+    // App IDs (independent of app name)
     if (twitter.appIdIphone) {
       tags.push({ attribute: 'name', key: 'twitter:app:id:iphone', content: twitter.appIdIphone });
     }
