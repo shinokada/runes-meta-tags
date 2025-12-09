@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.5.0
+
+### Minor Changes
+
+- feat: improvements
+  - Adds dedicated meta-tag generators and a new MetaTags component with consolidated rendering
+  - introduces GenericMetaTag typing (optional id), normalizes values
+  - fixes Svelte key collisions
+  - adds tests and demo, updates docs
+  - bumps tooling
+  - and adjusts imports/configs and linting globals
+
 ## [Unreleased]
 
 ### Fixed

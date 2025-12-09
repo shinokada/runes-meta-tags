@@ -52,3 +52,20 @@
     <meta {...createDynamicAttribute(tag)} content={tag.content} />
   {/each}
 </svelte:head>
+
+<!--
+@component
+[Go to docs](https://runes-meta-tag.codewithshin.com/)
+## Type
+[MetaProps](https://github.com/shinokada/runes-meta-tags/blob/main/src/lib/types.ts#L57)
+## Props
+@prop title
+@prop robots
+@prop description
+@prop keywords
+@prop twitter
+@prop og
+@prop canonical
+@prop author
+@prop viewport
+-->
