@@ -1,5 +1,5 @@
 <script lang="ts">
-  import RunesMetaTags from '../RunesMetaTags.svelte';
+  import MetaTags from '../MetaTags.svelte';
   import type { MetaProps } from '../types';
 
   // Test case 1: Multiple article authors and tags
@@ -56,7 +56,7 @@
   // For display purposes, we'll generate the tags
   import { generateOpenGraphTags, generateTwitterTags } from '../helpers';
 
-  const displayTags = $derived(() => {
+  const displayTags = $derived.by(() => {
     const meta = currentMeta;
     const tags = [];
 
@@ -84,7 +84,7 @@
   </div>
 
   <!-- Apply the meta tags to the head -->
-  <RunesMetaTags {...currentMeta} />
+  <MetaTags {...currentMeta} />
 
   <div class="output">
     <h2>Generated Meta Tags:</h2>

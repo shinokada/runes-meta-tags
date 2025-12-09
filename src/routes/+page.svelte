@@ -43,8 +43,11 @@
 <HighlightCompo lang="ts" code={modules['./md/layout-server-ts.md'] as string} />
 
 <H2>+layout.svelte</H2>
+<div class="mb-4 rounded-lg bg-yellow-50 p-4 text-sm text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300" role="alert">
+  <strong>Note:</strong> As of v0.5.0, use <code>MetaTags</code> instead of <code>RunesMetaTags</code>. The old component name is deprecated and will be removed in v1.0.0.
+</div>
 <p>
-  Import <code>RunesMetaTags</code> and <code>deepMerge</code> from <code>runes-meta-tags</code>. Add <code>data</code> to the <code>$props()</code>.
+  Import <code>MetaTags</code> (or the deprecated <code>RunesMetaTags</code>) and <code>deepMerge</code> from <code>runes-meta-tags</code>. Add <code>data</code> to the <code>$props()</code>.
 </p>
 
 <HighlightCompo lang="ts" code={modules['./md/layout-svelte.md'] as string} />
