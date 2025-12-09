@@ -2,7 +2,7 @@
   /**
    * @deprecated Use `MetaTags` instead.
    */
-  
+
   import type { MetaProps, GenericMetaTag } from './types';
   import { generateRobotsTags, generateTwitterTags, generateOpenGraphTags } from './helpers';
 
@@ -25,7 +25,9 @@
     return { [tag.attribute]: tag.key };
   }
 
-  console.warn('RunesMetaTags is deprecated. Use MetaTags instead.');
+  if (import.meta.env?.DEV) {
+    console.warn('RunesMetaTags is deprecated. Use MetaTags instead.');
+  }
 </script>
 
 <svelte:head>

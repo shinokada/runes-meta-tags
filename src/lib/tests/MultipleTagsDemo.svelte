@@ -55,8 +55,10 @@
 
   // For display purposes, we'll generate the tags
   import { generateOpenGraphTags, generateTwitterTags } from '../helpers';
+  import { SvelteMap } from 'svelte/reactivity';
 
-  const displayTags = $derived(() => {
+  // ✅ FIXED: Use $derived.by() for complex derivations with function bodies
+  const displayTags = $derived.by(() => {
     const meta = currentMeta;
     const tags = [];
 
@@ -68,6 +70,15 @@
     }
 
     return tags;
+  });
+
+  // ✅ OPTIMIZATION: Pre-compute duplicate keys (O(n) instead of O(n²))
+  const duplicateKeys = $derived.by(() => {
+    const keyCounts = new SvelteMap<string, number>();
+    for (const tag of displayTags) {
+      keyCounts.set(tag.key, (keyCounts.get(tag.key) || 0) + 1);
+    }
+    return new Set([...keyCounts.entries()].filter(([, count]) => count > 1).map(([key]) => key));
   });
 </script>
 
@@ -89,17 +100,21 @@
   <div class="output">
     <h2>Generated Meta Tags:</h2>
     <p class="info">
-      Total tags generated: <strong>{displayTags().length}</strong>
+      <!-- ✅ FIXED: displayTags is now a value, not a function -->
+      Total tags generated: <strong>{displayTags.length}</strong>
     </p>
 
     <div class="tags-list">
-      {#each displayTags() as tag, index (index)}
-        <div class="tag-item" class:duplicate={displayTags().filter((t) => t.key === tag.key).length > 1}>
+      <!-- ✅ FIXED: displayTags is now a value, not a function -->
+      {#each displayTags as tag, index (index)}
+        <!-- ✅ OPTIMIZED: Use pre-computed duplicateKeys Set (O(1) lookup) -->
+        <div class="tag-item" class:duplicate={duplicateKeys.has(tag.key)}>
           <span class="index">{index + 1}.</span>
           <code class="meta-tag">
             &lt;meta {tag.attribute}="{tag.key}" content="{tag.content}" /&gt;
           </code>
-          {#if displayTags().filter((t) => t.key === tag.key).length > 1}
+          <!-- ✅ OPTIMIZED: Use pre-computed duplicateKeys Set -->
+          {#if duplicateKeys.has(tag.key)}
             <span class="badge">Duplicate Key</span>
           {/if}
         </div>
@@ -139,7 +154,8 @@
   <div class="inspect">
     <h2>Inspect the DOM:</h2>
     <p>Open your browser's DevTools and inspect the <code>&lt;head&gt;</code> element to see the actual rendered meta tags.</p>
-    <button onclick={() => console.log('Meta tags:', displayTags())}> Log Tags to Console </button>
+    <!-- ✅ FIXED: displayTags is now a value, not a function -->
+    <button onclick={() => console.log('Meta tags:', displayTags)}> Log Tags to Console </button>
   </div>
 </div>
 
