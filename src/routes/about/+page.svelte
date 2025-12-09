@@ -5,11 +5,11 @@
     eager: true
   }) as Record<string, string>;
 
-  import { HighlightCompo } from 'runes-webkit';
+  import { HighlightCompo } from 'svelte-rune-highlight';
 </script>
 
 <h1>About</h1>
 
 <p>Check meta tags using the developer tools.</p>
 
-<HighlightCompo code={example['./+page.ts'] as string}  />
+<HighlightCompo code={example['./+page.ts'] as string} />

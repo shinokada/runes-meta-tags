@@ -1,95 +1,44 @@
-# runes-meta-tags
+# Changelog
 
-## 0.4.5
+## [Unreleased]
 
-### Patch Changes
+### Fixed
 
-- docs(style): update color
+- **Multiple meta tags with same key now render correctly** - Fixed Svelte keying issue that prevented multiple tags with the same `name` or `property` attribute from rendering (e.g., multiple `article:author`, `article:tag`, or `og:locale:alternate` tags). Changed from composite key to index-based key to ensure each tag gets a unique DOM node.
 
-## 0.4.4
+### Changed
 
-### Patch Changes
+- **Improved value normalization** - Changed from manual type checking to `String()` for more robust primitive value conversion in `mapToMetaTags` helper function. This ensures consistent handling of numbers, booleans, and other primitive types.
+- **Decoupled Twitter App Card IDs from app name** - App Card ID tags (`appIdIphone`, `appIdIpad`, `appIdGooglePlay`) and `appCountry` now render independently of `appName`. Previously, these tags only rendered if `appName` was provided, which was overly restrictive. This aligns with Twitter's App Card documentation where app IDs are the primary identifiers.
 
-- fix: add baseUrl param to metaImg function
+### Added
 
-## 0.4.3
+- **Comprehensive test suite** for multiple meta tags scenarios (`src/lib/tests/multiple-tags.test.ts`)
+- **Interactive demo component** (`src/lib/tests/MultipleTagsDemo.svelte`) showcasing:
+  - Articles with multiple authors and tags
+  - App cards with IDs only (no name)
+  - Full app cards with names and IDs
+- **Documentation** for the changes:
+  - `IMPLEMENTATION_SUMMARY.md` - Technical details and migration guide
+  - `QUICK_REFERENCE.md` - Quick examples and common patterns
 
-### Patch Changes
+### Technical Details
 
-- fix: update types and RunesMetaTags'
+These changes are **fully backward compatible** with no breaking changes. The improvements enhance functionality while maintaining the existing API.
 
-## 0.4.2
+**Files Modified:**
 
-### Patch Changes
+- `src/lib/helpers.ts` - Value normalization and app card decoupling
+- `src/lib/RunesMetaTags.svelte` - Fixed keyed each block
+- `src/lib/types.ts` - Added optional `id` field to `GenericMetaTag` interface
 
-- fix: deepMerge update
+**Files Added:**
 
-## 0.4.1
+- `src/lib/tests/multiple-tags.test.ts` - Unit tests
+- `src/lib/tests/MultipleTagsDemo.svelte` - Interactive demo
+- `IMPLEMENTATION_SUMMARY.md` - Technical documentation
+- `QUICK_REFERENCE.md` - Usage examples
 
-### Patch Changes
+### Credits
 
-- fix: implementation update in +layout
-
-## 0.4.0
-
-### Minor Changes
-
-- d09faf1: feat: add deepmerge dependencies
-
-## 0.3.2
-
-### Patch Changes
-
-- 45a7070: fix: add twitter:title
-
-## 0.3.1
-
-### Patch Changes
-
-- e81fc5c: fix: remove .ts from types.ts and helpers.ts
-
-## 0.3.0
-
-### Minor Changes
-
-- d3aad42: fix: remove Object.freeze and separate type and functions and import it to index
-
-## 0.2.5
-
-### Patch Changes
-
-- 6c9b8af: feat: add removeHyphensAndCapitalize and splitAndCapitalize functions
-
-## 0.2.4
-
-### Patch Changes
-
-- 423d251: docs: update Dropdown in Nav
-  chore: dependencies update
-
-## 0.2.3
-
-### Patch Changes
-
-- ee59235: fix: add "main": "dist/index.js" to package.json
-
-## 0.2.2
-
-### Patch Changes
-
-- 5dd8bf2: fix: add optional ? to twitter?.card and og?.url etc.
-
-## 0.2.1
-
-### Patch Changes
-
-- 3c37609: docs: update README
-- 1d2c1d3: tests: add tests for index and about meta data
-
-## 0.1.1
-
-### Patch Changes
-
-- f29644d: chore: add changeset
-  chore: update svelte next96
-  feat: update RunesMetaTags
+These improvements were identified and implemented based on suggestions from CodeRabbitAI code review.

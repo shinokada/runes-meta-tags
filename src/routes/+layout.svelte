@@ -7,9 +7,9 @@
   import Nav from './utils/Nav.svelte';
 
   let { children, data } = $props();
-  const analyticsId = data.ANALYTICS_ID;
+  const analyticsId = $derived(data.ANALYTICS_ID);
 
-  let metaTags = $state<MetaProps>(page.data.pageMetaTags ? deepMerge<MetaProps>(data.layoutMetaTags, page.data.pageMetaTags) : data.layoutMetaTags);
+  let metaTags = $derived<MetaProps>(page.data.pageMetaTags ? deepMerge<MetaProps>(data.layoutMetaTags, page.data.pageMetaTags) : data.layoutMetaTags);
 
   $effect(() => {
     metaTags = page.data.pageMetaTags ? deepMerge<MetaProps>(data.layoutMetaTags, page.data.pageMetaTags) : data.layoutMetaTags;

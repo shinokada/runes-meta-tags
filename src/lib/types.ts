@@ -36,7 +36,7 @@ export interface TwitterType {
 }
 
 export interface OgType {
-  type?: 'website' | 'article' | 'product' | 'book' | 'profile' | 'music' | 'video' | 'other';
+  type?: 'website' | 'article' | 'product' | 'book' | 'profile' | 'music' | 'video';
   title?: string;
   description?: string;
   url?: string;
@@ -71,6 +71,17 @@ export interface MetaProps {
   twitter?: TwitterType;
   og?: OgType;
   canonical?: string;
+}
+
+/**
+ * Interface for a generic HTML Meta tag object used by helpers.
+ * The attribute property specifies whether to use 'name' or 'property' in the final HTML.
+ */
+export interface GenericMetaTag {
+  attribute: 'name' | 'property';
+  key: string; // The specific key/value of the attribute (e.g., 'og:title', 'twitter:card').
+  content: string;
+  id?: string; // Optional unique identifier for Svelte keying
 }
 
 /* eslint-disable  @typescript-eslint/no-explicit-any */

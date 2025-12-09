@@ -1,5 +1,6 @@
 <script lang="ts">
-  import { removeHyphensAndCapitalize, SupportBanner, TechInfo, HighlightCompo, H2, H3 } from 'runes-webkit';
+  import { removeHyphensAndCapitalize, SupportBanner, TechInfo, H2, H3 } from 'runes-webkit';
+  import { HighlightCompo } from 'svelte-rune-highlight';
 
   const modules = import.meta.glob('./md/*.md', {
     query: '?raw',
@@ -35,36 +36,39 @@
 <H2>Installation</H2>
 <p>Please install <code>runes-meta-tags</code> by using the following command:</p>
 
-<HighlightCompo codeLang="ts" code={modules['./md/installation.md'] as string}  />
+<HighlightCompo lang="ts" code={modules['./md/installation.md'] as string} />
 
 <H2>+layout.server.ts</H2>
 <p>The <code>+layout.server.ts</code> file is used for serving the default meta tags.</p>
-<HighlightCompo codeLang="ts" code={modules['./md/layout-server-ts.md'] as string}  />
+<HighlightCompo lang="ts" code={modules['./md/layout-server-ts.md'] as string} />
 
 <H2>+layout.svelte</H2>
+<div class="mb-4 rounded-lg bg-yellow-50 p-4 text-sm text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300" role="alert">
+  <strong>Note:</strong> As of v0.5.0, use <code>MetaTags</code> instead of <code>RunesMetaTags</code>. The old component name is deprecated and will be removed in v1.0.0.
+</div>
 <p>
-  Import <code>RunesMetaTags</code> and <code>deepMerge</code> from <code>runes-meta-tags</code>. Add <code>data</code> to the <code>$props()</code>.
+  Import <code>MetaTags</code> (or the deprecated <code>RunesMetaTags</code>) and <code>deepMerge</code> from <code>runes-meta-tags</code>. Add <code>data</code> to the <code>$props()</code>.
 </p>
 
-<HighlightCompo codeLang="ts" code={modules['./md/layout-svelte.md'] as string}  />
+<HighlightCompo lang="ts" code={modules['./md/layout-svelte.md'] as string} />
 
 <H2>about/+page.ts</H2>
 <p>You can modify the meta tags if you need. The following is an example for the about page.</p>
-<HighlightCompo codeLang="ts" code={modules['./md/about-page-ts.md'] as string}  />
+<HighlightCompo lang="ts" code={modules['./md/about-page-ts.md'] as string} />
 
 <H2>about/+page.svelte</H2>
 <p><code>about/+page.svelte</code> needs any extra code.</p>
-<HighlightCompo codeLang="ts" code={modules['./md/about-page-svelte.md'] as string}  />
+<HighlightCompo lang="ts" code={modules['./md/about-page-svelte.md'] as string} />
 
 <H2>Playwright test examples</H2>
 
 <H3>Index page</H3>
 <p>Use the following examples to start your Playwright tests for the index page.</p>
 
-<HighlightCompo codeLang="ts" code={modules['./md/playwright-test-index.md'] as string}  />
+<HighlightCompo lang="ts" code={modules['./md/playwright-test-index.md'] as string} />
 <H3>About page</H3>
 <p>Use the following examples to start your Playwright tests for the About page.</p>
 
-<HighlightCompo codeLang="ts" code={modules['./md/playwright-test-about.md'] as string}  />
+<HighlightCompo lang="ts" code={modules['./md/playwright-test-about.md'] as string} />
 
-<TechInfo {...pkg} class="dark:bg-stone-900"/>
+<TechInfo {...pkg} class="dark:bg-stone-900" />

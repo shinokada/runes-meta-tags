@@ -1,5 +1,5 @@
 <script>
-  import { RunesMetaTags, deepMerge } from 'runes-meta-tags';
+  import { MetaTags, deepMerge } from 'runes-meta-tags';
 
   let { children, data } = $props();
 
@@ -15,6 +15,6 @@
   });
 </script>
 
-<RunesMetaTags {...metaTags} />
+<MetaTags {...metaTags} />
 
 {@render children()}
