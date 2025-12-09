@@ -57,7 +57,6 @@
   import { generateOpenGraphTags, generateTwitterTags } from '../helpers';
   import { SvelteMap } from 'svelte/reactivity';
 
-  // ✅ FIXED: Use $derived.by() for complex derivations with function bodies
   const displayTags = $derived.by(() => {
     const meta = currentMeta;
     const tags = [];
@@ -72,7 +71,6 @@
     return tags;
   });
 
-  // ✅ OPTIMIZATION: Pre-compute duplicate keys (O(n) instead of O(n²))
   const duplicateKeys = $derived.by(() => {
     const keyCounts = new SvelteMap<string, number>();
     for (const tag of displayTags) {

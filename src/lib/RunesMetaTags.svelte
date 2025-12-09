@@ -25,7 +25,10 @@
     return { [tag.attribute]: tag.key };
   }
 
-  if (import.meta.env?.DEV) {
+  let hasWarned = false;
+
+  if (import.meta.env?.DEV && !hasWarned) {
+    hasWarned = true;
     console.warn('RunesMetaTags is deprecated. Use MetaTags instead.');
   }
 </script>
