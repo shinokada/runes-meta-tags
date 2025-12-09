@@ -56,7 +56,7 @@
   // For display purposes, we'll generate the tags
   import { generateOpenGraphTags, generateTwitterTags } from '../helpers';
 
-  const displayTags = $derived.by(() => {
+  const displayTags = $derived(() => {
     const meta = currentMeta;
     const tags = [];
 

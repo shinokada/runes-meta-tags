@@ -25,8 +25,8 @@ Both components are currently exported and functionally identical, but please mi
 
 ```svelte
 <!-- Old (deprecated) -->
-import { RunesMetaTags } from 'runes-meta-tags';
+import {RunesMetaTags} from 'runes-meta-tags';
 
 <!-- New (recommended) -->
-import { MetaTags } from 'runes-meta-tags';
+import {MetaTags} from 'runes-meta-tags';
 ```

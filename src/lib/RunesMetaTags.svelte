@@ -1,4 +1,8 @@
 <script lang="ts">
+  /**
+   * @deprecated Use `MetaTags` instead.
+   */
+  
   import type { MetaProps, GenericMetaTag } from './types';
   import { generateRobotsTags, generateTwitterTags, generateOpenGraphTags } from './helpers';
 
@@ -20,6 +24,8 @@
   function createDynamicAttribute(tag: GenericMetaTag) {
     return { [tag.attribute]: tag.key };
   }
+
+  console.warn('RunesMetaTags is deprecated. Use MetaTags instead.');
 </script>
 
 <svelte:head>
