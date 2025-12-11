@@ -1,3 +1,5 @@
+import type { VideoType, ArticleType } from 'runes-meta-tags';
+
 export interface MetaProps {
   // Page title (appears in browser tab and search results)
   title?: string;

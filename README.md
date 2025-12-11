@@ -41,7 +41,7 @@ Runes Meta Tags is a comprehensive meta tag management library for SvelteKit tha
 pnpm i -D runes-meta-tags
 # or
 npm i -D runes-meta-tags
-# or  
+# or
 yarn add -D runes-meta-tags
 # or
 bun add -D runes-meta-tags
@@ -88,14 +88,10 @@ Create `src/routes/+layout.svelte`:
 <script lang="ts">
   import { MetaTags, deepMerge } from 'runes-meta-tags';
   import { page } from '$app/stores';
-  
+
   let { children, data } = $props();
 
-  let metaTags = $derived(
-    $page.data.pageMetaTags
-      ? deepMerge(data.layoutMetaTags, $page.data.pageMetaTags)
-      : data.layoutMetaTags
-  );
+  let metaTags = $derived($page.data.pageMetaTags ? deepMerge(data.layoutMetaTags, $page.data.pageMetaTags) : data.layoutMetaTags);
 </script>
 
 <MetaTags {...metaTags} />
@@ -216,12 +212,14 @@ interface MetaProps {
   keywords?: string | string[];
   author?: string;
   canonical?: string;
-  robots?: boolean | {
-    index?: boolean;
-    follow?: boolean;
-    nocache?: boolean;
-    googleBot?: string;
-  };
+  robots?:
+    | boolean
+    | {
+        index?: boolean;
+        follow?: boolean;
+        nocache?: boolean;
+        googleBot?: string;
+      };
   og?: {
     type?: 'website' | 'article' | 'product' | 'book' | 'profile' | 'music' | 'video';
     title?: string;
@@ -296,12 +294,12 @@ import { expect, test } from '@playwright/test';
 
 test('about page has correct meta tags', async ({ page }) => {
   await page.goto('/about');
-  
+
   await expect(page).toHaveTitle('About Us - My Site');
-  
+
   const metaDescription = page.locator('meta[name="description"]');
   await expect(metaDescription).toHaveAttribute('content', 'Learn about us');
-  
+
   const metaOgUrl = page.locator('meta[property="og:url"]');
   await expect(metaOgUrl).toHaveAttribute('content', 'http://localhost:4173/about');
 });
@@ -324,6 +322,7 @@ The old `RunesMetaTags` export is deprecated and will be removed in v1.0.0.
 ## Best Practices
 
 ✅ **DO:**
+
 - Define common meta tags in `+layout.server.ts`
 - Use `deepMerge` to inherit layout meta tags
 - Always include `og:url` using `url.href` in page-specific meta tags
@@ -331,6 +330,7 @@ The old `RunesMetaTags` export is deprecated and will be removed in v1.0.0.
 - Use helper functions for consistency
 
 ❌ **DON'T:**
+
 - Duplicate entire meta tag structures on every page
 - Hardcode URLs - use `url.href`
 - Forget to add `url` parameter to load functions

@@ -1,13 +1,13 @@
 <script lang="ts">
   import { removeHyphensAndCapitalize, SupportBanner, TechInfo, H2, H3 } from 'runes-webkit';
-  import { HighlightCompo } from 'svelte-rune-highlight';
+  import { HighlightCompo, HighlightSvelte } from 'svelte-rune-highlight';
 
   const modules = import.meta.glob('./md/*.md', {
     query: '?raw',
     import: 'default',
     eager: true
   });
-  /*eslint no-undef: "off"*/
+
   const pkg = {
     pkgName: __NAME__,
     pkgVersion: __VERSION__,
@@ -29,7 +29,8 @@
 <h1 class="my-8 flex justify-center">{removeHyphensAndCapitalize(__NAME__)}</h1>
 
 <p class="mb-4">
-  Runes Meta Tags is a powerful meta tag management library for SvelteKit applications. It provides an elegant way to configure SEO meta tags, Open Graph tags for social media sharing, Twitter Cards, and more. With built-in support for deep merging, you can define default meta tags at the layout level and override them on specific pages.
+  Runes Meta Tags is a powerful meta tag management library for SvelteKit applications. It provides an elegant way to configure SEO meta tags, Open Graph tags for social media sharing, Twitter Cards,
+  and more. With built-in support for deep merging, you can define default meta tags at the layout level and override them on specific pages.
 </p>
 
 <H2>Features</H2>
@@ -46,7 +47,7 @@
 </ul>
 
 <H2>Installation</H2>
-<HighlightCompo lang="bash" code={modules['./md/installation.md'] as string} />
+<HighlightCompo lang="js" code={modules['./md/installation.md'] as string} />
 
 <H2>Quick Start Guide</H2>
 
@@ -63,7 +64,7 @@
 <p class="mb-4">
   Import <code>MetaTags</code> and <code>deepMerge</code> in your <code>+layout.svelte</code>. The <code>deepMerge</code> function intelligently combines layout and page-specific meta tags.
 </p>
-<HighlightCompo lang="ts" code={modules['./md/layout-svelte.md'] as string} />
+<HighlightSvelte code={modules['./md/layout-svelte.md'] as string} />
 
 <H3>Step 3: Create Page-Specific Meta Tags (Optional)</H3>
 <p class="mb-4">
@@ -73,7 +74,7 @@
 
 <H3>Step 4: Use in Your Page Component</H3>
 <p class="mb-4">Your page components don't need any special code - the meta tags are handled automatically!</p>
-<HighlightCompo lang="ts" code={modules['./md/about-page-svelte.md'] as string} />
+<HighlightSvelte code={modules['./md/about-page-svelte.md'] as string} />
 
 <H2>Advanced Usage</H2>
 
@@ -126,7 +127,7 @@
 <div class="mb-4 space-y-4">
   <div class="rounded-lg bg-green-50 p-4 dark:bg-green-900/30">
     <strong class="text-green-800 dark:text-green-300">✓ DO:</strong>
-    <ul class="ml-6 mt-2 list-disc space-y-1 text-green-800 dark:text-green-300">
+    <ul class="mt-2 ml-6 list-disc space-y-1 text-green-800 dark:text-green-300">
       <li>Define common meta tags (keywords, site name, default image) in <code>+layout.server.ts</code></li>
       <li>Use <code>deepMerge</code> to inherit layout meta tags on pages</li>
       <li>Always include <code>og:url</code> using <code>url.href</code> in page-specific <code>+page.ts</code></li>
@@ -138,7 +139,7 @@
 
   <div class="rounded-lg bg-red-50 p-4 dark:bg-red-900/30">
     <strong class="text-red-800 dark:text-red-300">✗ DON'T:</strong>
-    <ul class="ml-6 mt-2 list-disc space-y-1 text-red-800 dark:text-red-300">
+    <ul class="mt-2 ml-6 list-disc space-y-1 text-red-800 dark:text-red-300">
       <li>Duplicate the entire meta tag structure on every page</li>
       <li>Forget to add <code>og:url</code> to page-specific meta tags</li>
       <li>Use the deprecated <code>RunesMetaTags</code> component (use <code>MetaTags</code> instead)</li>

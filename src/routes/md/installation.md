@@ -1,13 +1,13 @@
 pnpm i -D runes-meta-tags
 
-# or
+or
 
 npm i -D runes-meta-tags
 
-# or
+or
 
 yarn add -D runes-meta-tags
 
-# or
+or
 
 bun add -D runes-meta-tags
