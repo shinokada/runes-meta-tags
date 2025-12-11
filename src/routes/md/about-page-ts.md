@@ -1,27 +1,25 @@
 import type { MetaProps } from 'runes-meta-tags';
-import { metaTitle, metaDescription, metaImg, splitAndCapitalize } from 'runes-meta-tags';
-
-// Vite define variable (set in vite.config.ts: define: { NAME: JSON.stringify('Runes') })
-declare const NAME: string;
 
 export const load = ({ url }) => {
-  const title = metaTitle(url.pathname, NAME);
-  const basicDesc = splitAndCapitalize(NAME);
-  const description = metaDescription(url.pathname, basicDesc);
-  const image = metaImg(url.pathname, NAME);
-
   const pageMetaTags: MetaProps = {
-    title,
-    description,
+    title: 'About Us - My Awesome Site',
+    description: 'Learn more about our team and mission',
     og: {
-      title,
-      description
+      title: 'About Us - My Awesome Site',
+      description: 'Learn more about our team and mission',
+      url: url.href,
+      image: 'https://example.com/about-og.jpg'
     },
     twitter: {
-      title,
-      description
+      title: 'About Us - My Awesome Site',
+      description: 'Learn more about our team and mission',
+      image: 'https://example.com/about-og.jpg'
     }
   };
 
   return { pageMetaTags };
 };
+
+// Note: With deepMerge, this page will:
+// ✓ Override: title, description, og.title, og.description, og.url, og.image
+// ✓ Inherit: keywords, author, og.siteName, og.imageWidth, twitter.card, etc.

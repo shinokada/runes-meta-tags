@@ -20,7 +20,14 @@ export default ts.config(
       globals: {
         ...globals.browser,
         ...globals.node,
-        __NAME__: 'readonly'
+        __NAME__: 'readonly',
+        __VERSION__: 'readonly',
+        __GITHUBURL__: 'readonly',
+        __RUNATICS_VERSION__: 'readonly',
+        __SVELTE_VERSION__: 'readonly',
+        __SVELTEKIT_VERSION__: 'readonly',
+        __SVELTE_RUNE_HIGHLIGHT_VERSION__: 'readonly',
+        __VITE_VERSION__: 'readonly'
       }
     }
   },
