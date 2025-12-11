@@ -1,38 +1,30 @@
 import type { MetaProps } from 'runes-meta-tags';
-import { metaTitle, metaDescription, metaImg } from 'runes-meta-tags';
-
-// Vite define variable (in vite.config.ts: define: { NAME: JSON.stringify('Runes') })
-declare const NAME: string;
 
 export const load = ({ url }) => {
-  const title = metaTitle(url.pathname, NAME);
-  const basicDesc = 'Meta tags for Runes.';
-  const description = metaDescription(url.pathname, basicDesc);
-  const image = metaImg(url.pathname, NAME);
-
   const layoutMetaTags: MetaProps = {
-    title,
-    description,
-    keywords: 'runes, meta, tags',
-    twitter: {
-      card: 'summary_large_image',
-      site: '@johndoe',
-      creator: '@johndoe',
-      title,
-      description,
-      image,
-      imageAlt: title
-    },
+    title: 'My Awesome Site',
+    description: 'Welcome to my site - we build amazing things with Svelte',
+    keywords: 'svelte, sveltekit, web development, javascript',
+    author: 'John Doe',
     og: {
       type: 'website',
-      title,
-      description,
+      title: 'My Awesome Site',
+      description: 'Welcome to my site - we build amazing things with Svelte',
       url: url.href,
-      image,
-      imageAlt: title,
-      siteName: 'Runes meta',
+      image: 'https://example.com/og-default.jpg',
+      imageAlt: 'My Awesome Site logo',
+      siteName: 'My Awesome Site',
       imageWidth: '1200',
       imageHeight: '630'
+    },
+    twitter: {
+      card: 'summary_large_image',
+      site: '@mysite',
+      creator: '@johndoe',
+      title: 'My Awesome Site',
+      description: 'Welcome to my site - we build amazing things with Svelte',
+      image: 'https://example.com/og-default.jpg',
+      imageAlt: 'My Awesome Site logo'
     }
   };
 
