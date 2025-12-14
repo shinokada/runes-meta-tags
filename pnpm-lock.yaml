@@ -113,6 +113,9 @@ importers:
       vite:
         specifier: ^7.2.7
         version: 7.2.7(jiti@2.6.1)(lightningcss@1.30.2)
+      vite-plugin-devtools-json:
+        specifier: ^1.0.0
+        version: 1.0.0(vite@7.2.7(jiti@2.6.1)(lightningcss@1.30.2))
       vitest:
         specifier: ^4.0.15
         version: 4.0.15(jiti@2.6.1)(jsdom@27.3.0(postcss@8.5.6))(lightningcss@1.30.2)
@@ -2185,6 +2188,15 @@ packages:
 
   util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
+
+  uuid@11.1.0:
+    resolution: {integrity: sha512-0/A9rDy9P7cJ+8w1c9WD9V//9Wj15Ce2MPz8Ri6032usz+NfePxx5AcN3bN+r6ZL6jEo066/yNYB3tn4pQEx+A==}
+    hasBin: true
+
+  vite-plugin-devtools-json@1.0.0:
+    resolution: {integrity: sha512-MobvwqX76Vqt/O4AbnNMNWoXWGrKUqZbphCUle/J2KXH82yKQiunOeKnz/nqEPosPsoWWPP9FtNuPBSYpiiwkw==}
+    peerDependencies:
+      vite: ^5.0.0 || ^6.0.0 || ^7.0.0
 
   vite@7.2.7:
     resolution: {integrity: sha512-ITcnkFeR3+fI8P1wMgItjGrR10170d8auB4EpMLPqmx6uxElH3a/hHGQabSHKdqd4FXWO1nFIp9rRn7JQ34ACQ==}
@@ -4311,6 +4323,13 @@ snapshots:
       punycode: 2.3.1
 
   util-deprecate@1.0.2: {}
+
+  uuid@11.1.0: {}
+
+  vite-plugin-devtools-json@1.0.0(vite@7.2.7(jiti@2.6.1)(lightningcss@1.30.2)):
+    dependencies:
+      uuid: 11.1.0
+      vite: 7.2.7(jiti@2.6.1)(lightningcss@1.30.2)
 
   vite@7.2.7(jiti@2.6.1)(lightningcss@1.30.2):
     dependencies:
