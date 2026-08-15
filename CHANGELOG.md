@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.5.1
+
+### Patch Changes
+
+- 9140b36: fix: remove hasWarned
+
 ## 0.5.0
 
 ### Minor Changes
