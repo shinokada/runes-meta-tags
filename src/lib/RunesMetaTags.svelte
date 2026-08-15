@@ -24,13 +24,6 @@
   function createDynamicAttribute(tag: GenericMetaTag) {
     return { [tag.attribute]: tag.key };
   }
-
-  let hasWarned = false;
-
-  if (!hasWarned) {
-    hasWarned = true;
-    console.warn('RunesMetaTags is deprecated. Use MetaTags instead.');
-  }
 </script>
 
 <svelte:head>
