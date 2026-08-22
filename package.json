@@ -1,6 +1,6 @@
 {
   "name": "runes-meta-tags",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "Meta tag for Svelte Runes",
   "author": {
     "name": "Shinichi Okada",
@@ -31,7 +31,7 @@
     "format": "prettier --write .",
     "lint": "prettier --check . && eslint .",
     "test:unit": "vitest",
-    "test": "npm run test:unit -- --run && npm run test:e2e",
+    "test": "pnpm run test:e2e && pnpm run test:unit --run",
     "test:e2e": "playwright test",
     "gen:exports": "svelte-lib-helpers exports",
     "gen:docspropvalue": "svelte-lib-helpers docspropvalue shinokada/runes-meta-tags",
